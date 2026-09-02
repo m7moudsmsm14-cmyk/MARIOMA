@@ -1,25 +1,855 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For Marioma</title>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Marioma</title>
+
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#05060d;color:#fff;font-family:Arial,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% 18%,#263a72,#0b1024 38%,#03040a 78%)}body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.4;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px);background-size:91px 91px}
-header{height:68px;border-bottom:1px solid #ffffff16;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;position:fixed;top:0;left:0;right:0;background:#05060ddd;backdrop-filter:blur(16px);z-index:5}.brand{font-size:16px}.brand b{color:#ff72b5;font-size:21px;margin-right:8px}nav{display:flex;gap:32px;font-size:14px}nav a{color:#ddd;text-decoration:none}
-.opening{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 20px 70px}.opening-inner{max-width:820px}.kicker{font-size:13px;text-transform:uppercase;letter-spacing:5px;color:#b7b8c6;margin-bottom:24px}.opening h1{font-family:cursive;font-size:92px;font-weight:400;margin:0;color:#ff81bc;text-shadow:0 0 30px #ff5aa044}.opening-line{width:120px;height:1px;background:#ff70b3;margin:35px auto}.opening p{font-family:Georgia,serif;font-size:20px;line-height:1.8;color:#e9e9ef;max-width:720px;margin:0 auto 35px}.open-btn{border:1px solid #ff79b9;background:#ff79b915;color:#fff;border-radius:999px;padding:14px 28px;font-size:14px;cursor:pointer}
-.section{max-width:950px;margin:auto;padding:95px 20px}.section-title{text-align:center;font-family:Georgia,serif;font-size:34px;font-weight:400;margin:0 0 12px;color:#f3d8e5}.section-sub{text-align:center;color:#a8a9b6;font-size:14px;margin:0 0 38px}.message-box{max-width:760px;margin:auto;text-align:center;padding:48px 35px;border-top:1px solid #ff78b933;border-bottom:1px solid #ff78b933;background:#090b16aa}.message-box p{font-family:Georgia,serif;font-size:19px;line-height:2;color:#e7e6ec}.message-box strong{color:#ff86bd;font-weight:400}
-.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.visible{opacity:1;transform:none}.song{max-width:820px;margin:auto;padding:25px;border:1px solid #ff6db533;border-radius:24px;background:#11101ddd;box-shadow:0 20px 70px #0009}.songrow{display:flex;align-items:center;gap:22px}.musicbox{width:105px;height:105px;flex:none;border-radius:20px;background:radial-gradient(circle,#ff75b8,#3a173d 60%,#100914);display:grid;place-items:center;font-size:51px}.song h2{margin:0 0 8px;color:#ff82bb;font-size:22px;font-weight:500}.song p{margin:0 0 15px;color:#b9a8b3;font-size:14px}audio{width:100%}
-.scene{height:560px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 43%,#f38a9a55,transparent 20%),linear-gradient(#060814,#18142a 52%,#07060d)}.scene:before{content:"";position:absolute;left:-10%;right:-10%;bottom:-20%;height:62%;background:linear-gradient(#242038,#08070d);clip-path:ellipse(72% 65% at 50% 100%)}.couple{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:380px;height:340px}.person{position:absolute;bottom:0;background:#020204;border-radius:48% 48% 8% 8%}.person:before{content:"";position:absolute;background:#020204;border-radius:50%;width:88px;height:88px;top:-66px;left:50%;transform:translateX(-50%)}.p1{width:155px;height:235px;left:34px;transform:rotate(5deg)}.p2{width:170px;height:275px;right:30px;transform:rotate(-2deg)}
-.gallery{padding-top:100px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.photo{overflow:hidden;border:1px solid #ffffff18;border-radius:18px;background:#0b0c14;box-shadow:0 18px 50px #0008;cursor:pointer}.photo img{width:100%;height:340px;display:block;object-fit:cover;transition:.6s}.photo:hover img{transform:scale(1.045)}.photo:first-child{grid-column:span 2}.photo:first-child img{height:470px}.lightbox{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;padding:25px;z-index:20}.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:88vh}.close{position:absolute;right:25px;top:18px;font:32px Arial}.quote{text-align:center;padding:95px 20px 70px}.quote p{font-family:Georgia,serif;font-size:28px;line-height:1.55;color:#eee;max-width:850px;margin:auto}.quote span{display:block;margin-top:18px;color:#ff7bb8;font-size:14px}footer{text-align:center;padding:45px 20px 60px;border-top:1px solid #ffffff12;color:#8f909b}footer strong{display:block;color:#ff7bb8;font-family:Georgia,serif;font-size:19px;font-weight:400;margin-bottom:10px}
-@media(max-width:700px){nav{display:none}.opening h1{font-size:64px}.opening p{font-size:17px}.section{padding:75px 16px}.message-box{padding:35px 20px}.message-box p{font-size:17px}.song{margin:0 14px;padding:18px}.musicbox{width:78px;height:78px}.scene{height:400px}.couple{transform:translateX(-50%) scale(.75);transform-origin:bottom}.grid{gap:9px}.photo img{height:230px}.photo:first-child img{height:320px}.quote p{font-size:22px}}
-</style></head><body>
-<header><div class="brand"> From Dody to Marioma <b>♥</b> </div><nav><a href="#home">Home</a><a href="#story">For You</a><a href="#memories">Memories</a></nav></header>
-<section class="opening" id="home"><div class="opening-inner"><div class="kicker">A little something, made only for you</div><h1>Marioma</h1><div class="opening-line"></div><p>This isn't just a page. It's a small piece of my heart, made especially for you — because some people deserve something more personal than a simple message.</p><button class="open-btn" onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">Open your surprise</button></div></section>
-<section class="section reveal" id="story"><h2 class="section-title">A little something I wanted to tell you...</h2><p class="section-sub">I made this because I wanted you to have something that was truly yours.</p><div class="message-box"><p>I could have just sent you a message, but <strong>you mean too much to me for that.</strong><br>So I made this little place for your memories, your smile, and one song that made me think of you.<br><strong>I hope every time you come back here, you remember how special you are to me.</strong></p></div></section>
-<section class="section reveal" id="song"><h2 class="section-title">A song for you</h2><p class="section-sub">Special Song for Marioma</p><div class="song"><div class="songrow"><div class="musicbox">♫</div><div style="flex:1"><h2>Special Song for Marioma</h2><p>Just press play.</p><audio controls preload="metadata"><source src="special-song.mp3" type="audio/mpeg"></audio></div></div></div></section>
-<section class="scene"><div class="couple"><div class="person p1"></div><div class="person p2"></div></div></section>
-<section class="gallery section reveal" id="memories"><h2 class="section-title">Our Memories</h2><p class="section-sub">Some moments become memories. Some memories become home.</p><div class="grid">
-<div class="photo"><img src="IMG_8886.jpeg" loading="lazy"></div><div class="photo"><img src="memory-2.jpeg" loading="lazy"></div><div class="photo"><img src="memory-3.jpeg" loading="lazy"></div><div class="photo"><img src="memory-4.jpeg" loading="lazy"></div>
-<div class="photo"><img src="IMG_8837.jpeg" loading="lazy"></div><div class="photo"><img src="IMG_8843.jpeg" loading="lazy"></div><div class="photo"><img src="IMG_9847.jpeg" loading="lazy"></div><div class="photo"><img src="2e896f71-847d-4692-b965-a0ed5d963419.jpeg" loading="lazy"></div><div class="photo"><img src="878306b8-73a2-48b9-a22b-b1f086d48ee0.jpeg" loading="lazy"></div><div class="photo"><img src="94cb0d7b-26d8-46a4-b37f-8dbbdbd96291.jpeg" loading="lazy"></div>
-</div></section>
-<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')"><div class="close">×</div><img id="lightboxImg"></div>
-<section class="quote reveal"><p>“Some people come into your life and quietly become one of the best parts of it.”</p><span>— for Marioma</span></section>
-<footer><strong>Made with love for Marioma</strong>A little page made just for you.</footer>
-<script>document.querySelectorAll('.photo img').forEach(i=>i.onclick=e=>{e.stopPropagation();document.getElementById('lightboxImg').src=i.src;document.getElementById('lightbox').classList.add('open')});const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>o.observe(e));</script>
-</body></html>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+background:#05060d;
+color:#fff;
+font-family:Arial,sans-serif;
+overflow-x:hidden
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-2;
+background:radial-gradient(circle at 50% 18%,#263a72,#0b1024 38%,#03040a 78%)
+}
+
+body:after{
+content:"";
+position:fixed;
+inset:0;
+z-index:-1;
+opacity:.4;
+background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px);
+background-size:91px 91px;
+animation:starsMove 18s linear infinite
+}
+
+@keyframes starsMove{
+from{background-position:0 0}
+to{background-position:91px 91px}
+}
+
+/* CINEMATIC INTRO */
+
+#intro{
+position:fixed;
+inset:0;
+z-index:9999;
+background:#03040a;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+animation:introOut 1.5s ease 4.2s forwards
+}
+
+.intro-text{
+font-family:Georgia,serif;
+font-size:28px;
+letter-spacing:1px;
+color:#f5eaf0;
+animation:introText 2s ease forwards
+}
+
+.intro-text span{
+display:block;
+margin-top:18px;
+color:#ff81bc;
+font-size:18px;
+opacity:0;
+animation:introSub 1.5s ease 1.4s forwards
+}
+
+@keyframes introText{
+from{
+opacity:0;
+transform:translateY(18px)
+}
+to{
+opacity:1;
+transform:translateY(0)
+}
+}
+
+@keyframes introSub{
+from{
+opacity:0;
+transform:translateY(10px)
+}
+to{
+opacity:1;
+transform:translateY(0)
+}
+}
+
+@keyframes introOut{
+to{
+opacity:0;
+visibility:hidden;
+pointer-events:none
+}
+}
+
+/* HEADER */
+
+header{
+height:68px;
+border-bottom:1px solid #ffffff16;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 5vw;
+position:fixed;
+top:0;
+left:0;
+right:0;
+background:#05060ddd;
+backdrop-filter:blur(16px);
+z-index:5
+}
+
+.brand{
+font-size:17px;
+color:#f5eaf0;
+letter-spacing:.3px
+}
+
+.brand b{
+color:#ff72b5;
+font-size:21px;
+margin-right:8px;
+text-shadow:0 0 12px #ff72b588
+}
+
+nav{
+display:flex;
+gap:32px;
+font-size:14px
+}
+
+nav a{
+color:#ddd;
+text-decoration:none
+}
+
+/* OPENING */
+
+.opening{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:100px 20px 70px
+}
+
+.opening-inner{
+max-width:820px
+}
+
+.kicker{
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:5px;
+color:#b7b8c6;
+margin-bottom:24px
+}
+
+.opening h1{
+font-family:cursive;
+font-size:92px;
+font-weight:400;
+margin:0;
+color:#ff81bc;
+text-shadow:
+0 0 15px #ff5aa088,
+0 0 35px #ff5aa055,
+0 0 70px #ff5aa033;
+animation:nameGlow 3s ease-in-out infinite
+}
+
+@keyframes nameGlow{
+0%,100%{
+text-shadow:
+0 0 15px #ff5aa055,
+0 0 35px #ff5aa033
+}
+50%{
+text-shadow:
+0 0 25px #ff5aa0aa,
+0 0 55px #ff5aa066,
+0 0 90px #ff5aa033
+}
+}
+
+.opening-line{
+width:120px;
+height:1px;
+background:#ff70b3;
+margin:35px auto
+}
+
+.opening p{
+font-family:Georgia,serif;
+font-size:20px;
+line-height:1.8;
+color:#e9e9ef;
+max-width:720px;
+margin:0 auto 35px
+}
+
+.open-btn{
+border:1px solid #ff79b9;
+background:#ff79b915;
+color:#fff;
+border-radius:999px;
+padding:14px 28px;
+font-size:14px;
+cursor:pointer;
+box-shadow:0 0 0 #ff79b900;
+animation:buttonGlow 2.5s ease-in-out infinite
+}
+
+.open-btn:hover{
+background:#ff79b928;
+transform:translateY(-2px)
+}
+
+@keyframes buttonGlow{
+0%,100%{
+box-shadow:0 0 0 #ff79b900
+}
+50%{
+box-shadow:0 0 25px #ff79b955
+}
+}
+
+/* SECTIONS */
+
+.section{
+max-width:950px;
+margin:auto;
+padding:95px 20px
+}
+
+.section-title{
+text-align:center;
+font-family:Georgia,serif;
+font-size:34px;
+font-weight:400;
+margin:0 0 12px;
+color:#f3d8e5
+}
+
+.section-sub{
+text-align:center;
+color:#a8a9b6;
+font-size:14px;
+margin:0 0 38px
+}
+
+.message-box{
+max-width:760px;
+margin:auto;
+text-align:center;
+padding:48px 35px;
+border-top:1px solid #ff78b933;
+border-bottom:1px solid #ff78b933;
+background:#090b16aa
+}
+
+.message-box p{
+font-family:Georgia,serif;
+font-size:19px;
+line-height:2;
+color:#e7e6ec
+}
+
+.message-box strong{
+color:#ff86bd;
+font-weight:400
+}
+
+/* REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:.8s
+}
+
+.reveal.visible{
+opacity:1;
+transform:none
+}
+
+/* SONG */
+
+.song{
+max-width:820px;
+margin:auto;
+padding:25px;
+border:1px solid #ff6db533;
+border-radius:24px;
+background:#11101ddd;
+box-shadow:0 20px 70px #0009
+}
+
+.songrow{
+display:flex;
+align-items:center;
+gap:22px
+}
+
+.musicbox{
+width:105px;
+height:105px;
+flex:none;
+border-radius:20px;
+background:radial-gradient(circle,#ff75b8,#3a173d 60%,#100914);
+display:grid;
+place-items:center;
+font-size:51px
+}
+
+.song h2{
+margin:0 0 8px;
+color:#ff82bb;
+font-size:22px;
+font-weight:500
+}
+
+.song p{
+margin:0 0 15px;
+color:#b9a8b3;
+font-size:14px
+}
+
+audio{
+width:100%
+}
+
+/* SCENE */
+
+.scene{
+height:560px;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(ellipse at 50% 43%,#f38a9a55,transparent 20%),
+linear-gradient(#060814,#18142a 52%,#07060d)
+}
+
+.scene:before{
+content:"";
+position:absolute;
+left:-10%;
+right:-10%;
+bottom:-20%;
+height:62%;
+background:linear-gradient(#242038,#08070d);
+clip-path:ellipse(72% 65% at 50% 100%)
+}
+
+.couple{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:380px;
+height:340px
+}
+
+.person{
+position:absolute;
+bottom:0;
+background:#020204;
+border-radius:48% 48% 8% 8%
+}
+
+.person:before{
+content:"";
+position:absolute;
+background:#020204;
+border-radius:50%;
+width:88px;
+height:88px;
+top:-66px;
+left:50%;
+transform:translateX(-50%)
+}
+
+.p1{
+width:155px;
+height:235px;
+left:34px;
+transform:rotate(5deg)
+}
+
+.p2{
+width:170px;
+height:275px;
+right:30px;
+transform:rotate(-2deg)
+}
+
+/* GALLERY */
+
+.gallery{
+padding-top:100px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px
+}
+
+.photo{
+overflow:hidden;
+border:1px solid #ffffff18;
+border-radius:18px;
+background:#0b0c14;
+box-shadow:0 18px 50px #0008;
+cursor:pointer
+}
+
+.photo img{
+width:100%;
+height:340px;
+display:block;
+object-fit:cover;
+transition:.6s
+}
+
+.photo:hover img{
+transform:scale(1.045)
+}
+
+.photo:first-child{
+grid-column:span 2
+}
+
+.photo:first-child img{
+height:470px
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+inset:0;
+background:#000e;
+display:none;
+align-items:center;
+justify-content:center;
+padding:25px;
+z-index:20
+}
+
+.lightbox.open{
+display:flex
+}
+
+.lightbox img{
+max-width:94vw;
+max-height:88vh
+}
+
+.close{
+position:absolute;
+right:25px;
+top:18px;
+font:32px Arial
+}
+
+/* QUOTE */
+
+.quote{
+text-align:center;
+padding:95px 20px 70px
+}
+
+.quote p{
+font-family:Georgia,serif;
+font-size:28px;
+line-height:1.55;
+color:#eee;
+max-width:850px;
+margin:auto
+}
+
+.quote span{
+display:block;
+margin-top:18px;
+color:#ff7bb8;
+font-size:14px
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:45px 20px 60px;
+border-top:1px solid #ffffff12;
+color:#8f909b
+}
+
+footer strong{
+display:block;
+color:#ff7bb8;
+font-family:Georgia,serif;
+font-size:19px;
+font-weight:400;
+margin-bottom:10px
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+nav{
+display:none
+}
+
+.opening h1{
+font-size:64px
+}
+
+.opening p{
+font-size:17px
+}
+
+.section{
+padding:75px 16px
+}
+
+.message-box{
+padding:35px 20px
+}
+
+.message-box p{
+font-size:17px
+}
+
+.song{
+margin:0 14px;
+padding:18px
+}
+
+.musicbox{
+width:78px;
+height:78px
+}
+
+.scene{
+height:400px
+}
+
+.couple{
+transform:translateX(-50%) scale(.75);
+transform-origin:bottom
+}
+
+.grid{
+gap:9px
+}
+
+.photo img{
+height:230px
+}
+
+.photo:first-child img{
+height:320px
+}
+
+.quote p{
+font-size:22px
+}
+
+.intro-text{
+font-size:23px
+}
+
+.intro-text span{
+font-size:16px
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+
+<div id="intro">
+<div class="intro-text">
+<div>For someone very special...</div>
+<span>I made something for you. ♡</span>
+</div>
+</div>
+
+<!-- HEADER -->
+
+<header>
+<div class="brand"><b>♥</b> From Dody to Marioma ❤️</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#story">For You</a>
+<a href="#memories">Memories</a>
+</nav>
+</header>
+
+<!-- OPENING -->
+
+<section class="opening" id="home">
+<div class="opening-inner">
+
+<div class="kicker">
+A little something, made only for you
+</div>
+
+<h1>Marioma</h1>
+
+<div class="opening-line"></div>
+
+<p>
+This isn't just a page. It's a small piece of my heart,
+made especially for you — because some people deserve
+something more personal than a simple message.
+</p>
+
+<button class="open-btn"
+onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">
+Open your surprise
+</button>
+
+</div>
+</section>
+
+<!-- STORY -->
+
+<section class="section reveal" id="story">
+
+<h2 class="section-title">
+A little something I wanted to tell you...
+</h2>
+
+<p class="section-sub">
+I made this because I wanted you to have something that was truly yours.
+</p>
+
+<div class="message-box">
+
+<p>
+I could have just sent you a message, but
+<strong>you mean too much to me for that.</strong>
+<br>
+So I made this little place for your memories,
+your smile, and one song that made me think of you.
+<br>
+<strong>
+I hope every time you come back here,
+you remember how special you are to me.
+</strong>
+</p>
+
+</div>
+</section>
+
+<!-- SONG -->
+
+<section class="section reveal" id="song">
+
+<h2 class="section-title">
+A song for you
+</h2>
+
+<p class="section-sub">
+Special Song for Marioma
+</p>
+
+<div class="song">
+
+<div class="songrow">
+
+<div class="musicbox">
+♫
+</div>
+
+<div style="flex:1">
+
+<h2>
+Special Song for Marioma
+</h2>
+
+<p>
+Just press play.
+</p>
+
+<audio controls preload="metadata">
+<source src="special-song.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- SCENE -->
+
+<section class="scene">
+
+<div class="couple">
+
+<div class="person p1"></div>
+<div class="person p2"></div>
+
+</div>
+
+</section>
+
+<!-- MEMORIES -->
+
+<section class="gallery section reveal" id="memories">
+
+<h2 class="section-title">
+Our Memories
+</h2>
+
+<p class="section-sub">
+Some moments become memories. Some memories become home.
+</p>
+
+<div class="grid">
+
+<div class="photo">
+<img src="IMG_8886.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="memory-2.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="memory-3.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="memory-4.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="IMG_8837.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="IMG_8843.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="IMG_9847.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="2e896f71-847d-4692-b965-a0ed5d963419.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="878306b8-73a2-48b9-a22b-b1f086d48ee0.jpeg" loading="lazy">
+</div>
+
+<div class="photo">
+<img src="94cb0d7b-26d8-46a4-b37f-8dbbdbd96291.jpeg" loading="lazy">
+</div>
+
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+
+<div class="close">
+×
+</div>
+
+<img id="lightboxImg">
+
+</div>
+
+<!-- QUOTE -->
+
+<section class="quote reveal">
+
+<p>
+“Some people come into your life and quietly become one of the best parts of it.”
+</p>
+
+<span>
+— for Marioma
+</span>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<strong>
+Made with love for Marioma
+</strong>
+
+A little page made just for you.
+
+</footer>
+
+<script>
+
+/* PHOTO LIGHTBOX */
+
+document.querySelectorAll('.photo img').forEach(i => {
+
+i.onclick = e => {
+
+e.stopPropagation();
+
+document.getElementById('lightboxImg').src = i.src;
+
+document.getElementById('lightbox').classList.add('open');
+
+};
+
+});
+
+/* SCROLL REVEAL */
+
+const o = new IntersectionObserver(
+es => es.forEach(e =>
+e.isIntersecting &&
+e.target.classList.add('visible')
+),
+{threshold:.12}
+);
+
+document.querySelectorAll('.reveal').forEach(e => o.observe(e));
+
+</script>
+
+</body>
+</html>
