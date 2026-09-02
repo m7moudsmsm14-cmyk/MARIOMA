@@ -7,7 +7,6 @@
 
 <style>
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -74,25 +73,13 @@ animation:introSub 1.5s ease 1.4s forwards
 }
 
 @keyframes introText{
-from{
-opacity:0;
-transform:translateY(18px)
-}
-to{
-opacity:1;
-transform:translateY(0)
-}
+from{opacity:0;transform:translateY(18px)}
+to{opacity:1;transform:translateY(0)}
 }
 
 @keyframes introSub{
-from{
-opacity:0;
-transform:translateY(10px)
-}
-to{
-opacity:1;
-transform:translateY(0)
-}
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
 }
 
 @keyframes introOut{
@@ -131,6 +118,13 @@ letter-spacing:.3px
 color:#ff72b5;
 font-size:21px;
 margin-right:8px;
+text-shadow:0 0 12px #ff72b588
+}
+
+.brand .heart{
+color:#ff72b5;
+font-size:19px;
+margin-left:4px;
 text-shadow:0 0 12px #ff72b588
 }
 
@@ -229,12 +223,8 @@ transform:translateY(-2px)
 }
 
 @keyframes buttonGlow{
-0%,100%{
-box-shadow:0 0 0 #ff79b900
-}
-50%{
-box-shadow:0 0 25px #ff79b955
-}
+0%,100%{box-shadow:0 0 0 #ff79b900}
+50%{box-shadow:0 0 25px #ff79b955}
 }
 
 /* SECTIONS */
@@ -338,9 +328,7 @@ color:#b9a8b3;
 font-size:14px
 }
 
-audio{
-width:100%
-}
+audio{width:100%}
 
 /* SCENE */
 
@@ -408,9 +396,7 @@ transform:rotate(-2deg)
 
 /* GALLERY */
 
-.gallery{
-padding-top:100px
-}
+.gallery{padding-top:100px}
 
 .grid{
 display:grid;
@@ -435,17 +421,11 @@ object-fit:cover;
 transition:.6s
 }
 
-.photo:hover img{
-transform:scale(1.045)
-}
+.photo:hover img{transform:scale(1.045)}
 
-.photo:first-child{
-grid-column:span 2
-}
+.photo:first-child{grid-column:span 2}
 
-.photo:first-child img{
-height:470px
-}
+.photo:first-child img{height:470px}
 
 /* LIGHTBOX */
 
@@ -460,9 +440,7 @@ padding:25px;
 z-index:20
 }
 
-.lightbox.open{
-display:flex
-}
+.lightbox.open{display:flex}
 
 .lightbox img{
 max-width:94vw;
@@ -521,29 +499,17 @@ margin-bottom:10px
 
 @media(max-width:700px){
 
-nav{
-display:none
-}
+nav{display:none}
 
-.opening h1{
-font-size:64px
-}
+.opening h1{font-size:64px}
 
-.opening p{
-font-size:17px
-}
+.opening p{font-size:17px}
 
-.section{
-padding:75px 16px
-}
+.section{padding:75px 16px}
 
-.message-box{
-padding:35px 20px
-}
+.message-box{padding:35px 20px}
 
-.message-box p{
-font-size:17px
-}
+.message-box p{font-size:17px}
 
 .song{
 margin:0 14px;
@@ -555,38 +521,24 @@ width:78px;
 height:78px
 }
 
-.scene{
-height:400px
-}
+.scene{height:400px}
 
 .couple{
 transform:translateX(-50%) scale(.75);
 transform-origin:bottom
 }
 
-.grid{
-gap:9px
-}
+.grid{gap:9px}
 
-.photo img{
-height:230px
-}
+.photo img{height:230px}
 
-.photo:first-child img{
-height:320px
-}
+.photo:first-child img{height:320px}
 
-.quote p{
-font-size:22px
-}
+.quote p{font-size:22px}
 
-.intro-text{
-font-size:23px
-}
+.intro-text{font-size:23px}
 
-.intro-text span{
-font-size:16px
-}
+.intro-text span{font-size:16px}
 
 }
 </style>
@@ -606,7 +558,9 @@ font-size:16px
 <!-- HEADER -->
 
 <header>
-<div class="brand"><b>♥</b> From Dody to Marioma ❤️</div>
+<div class="brand">
+<b>♥</b> From Dody to Marioma <span class="heart">♥</span>
+</div>
 
 <nav>
 <a href="#home">Home</a>
