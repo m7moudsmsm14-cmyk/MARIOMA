@@ -15,9 +15,9 @@ content="width=device-width,initial-scale=1"
 
 <style>
 
-/* =========================
+/* =====================================================
    BASIC
-========================= */
+===================================================== */
 
 *{
 box-sizing:border-box;
@@ -35,9 +35,6 @@ font-family:Arial,sans-serif;
 overflow-x:hidden;
 }
 
-
-/* BACKGROUND */
-
 body:before{
 content:"";
 position:fixed;
@@ -52,7 +49,6 @@ circle at 50% 18%,
 #03040a 78%
 );
 }
-
 
 body:after{
 content:"";
@@ -71,10 +67,8 @@ transparent 1.5px
 
 background-size:91px 91px;
 
-animation:
-starsMove 18s linear infinite;
+animation:starsMove 18s linear infinite;
 }
-
 
 @keyframes starsMove{
 
@@ -89,9 +83,9 @@ background-position:91px 91px;
 }
 
 
-/* ==================================================
-   CINEMATIC INTRO
-================================================== */
+/* =====================================================
+   INTRO
+===================================================== */
 
 #intro{
 
@@ -118,26 +112,30 @@ text-align:center;
 
 overflow:hidden;
 
-/*
-   النص يبدأ
-   ثم الصور
-   ثم الخروج
-*/
+transition:
+opacity 1.2s ease,
+visibility 1.2s ease;
+}
 
-animation:
-introOut 1.2s ease 9s forwards;
+#intro.hide{
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
 }
 
 
-/* =========================
+/* =====================================================
    INTRO TEXT
-========================= */
+===================================================== */
 
 .intro-text{
 
 position:absolute;
 
-z-index:10;
+z-index:20;
 
 font-family:Georgia,serif;
 
@@ -148,10 +146,8 @@ letter-spacing:1px;
 color:#f5eaf0;
 
 animation:
-introTextIn 2s ease forwards,
-introTextOut .8s ease 3s forwards;
+introTextIn 1.8s ease forwards;
 }
-
 
 .intro-text span{
 
@@ -166,15 +162,14 @@ font-size:18px;
 opacity:0;
 
 animation:
-introSub 1.5s ease 1.4s forwards;
+introSub 1.3s ease 1.2s forwards;
 }
-
 
 @keyframes introTextIn{
 
 from{
 opacity:0;
-transform:translateY(18px);
+transform:translateY(20px);
 }
 
 to{
@@ -183,7 +178,6 @@ transform:translateY(0);
 }
 
 }
-
 
 @keyframes introSub{
 
@@ -199,6 +193,11 @@ transform:translateY(0);
 
 }
 
+.intro-text.hide-text{
+
+animation:
+introTextOut .7s ease forwards;
+}
 
 @keyframes introTextOut{
 
@@ -210,19 +209,19 @@ transform:scale(.9);
 }
 
 
-/* ==================================================
-   INTRO MEDIA
-================================================== */
+/* =====================================================
+   INTRO PHOTO
+===================================================== */
 
-.intro-media{
+.intro-photo{
 
 position:absolute;
 
-width:min(78vw,370px);
+width:min(78vw,390px);
 
 height:min(72vh,620px);
 
-border-radius:24px;
+border-radius:26px;
 
 overflow:hidden;
 
@@ -232,13 +231,21 @@ background:#080808;
 
 box-shadow:
 
-0 25px 80px #000,
+0 25px 90px #000,
 
-0 0 50px #ff5aa033;
+0 0 60px #ff5aa044;
+
+transform:
+scale(.75)
+translateY(40px);
+
+transition:
+opacity .8s ease,
+transform 1.3s cubic-bezier(.2,.8,.2,1),
+filter 1s ease;
 }
 
-
-.intro-media img{
+.intro-photo img{
 
 width:100%;
 
@@ -249,156 +256,7 @@ display:block;
 object-fit:cover;
 }
 
-
-/* =========================
-   OLD PHOTO
-========================= */
-
-.old-photo{
-
-animation:
-oldPhoto 1.8s ease forwards;
-
-animation-delay:3.4s;
-}
-
-
-@keyframes oldPhoto{
-
-0%{
-
-opacity:0;
-
-transform:
-scale(.72)
-translateY(45px)
-rotate(-4deg);
-}
-
-20%{
-opacity:1;
-}
-
-75%{
-
-opacity:1;
-
-transform:
-scale(1)
-translateY(0)
-rotate(-1deg);
-}
-
-100%{
-
-opacity:0;
-
-transform:
-scale(1.06)
-translateY(-10px);
-}
-
-}
-
-
-/* ==================================================
-   I LOVE YOU MESSAGE
-================================================== */
-
-.love-message{
-
-position:absolute;
-
-z-index:8;
-
-width:100%;
-
-padding:20px;
-
-opacity:0;
-
-animation:
-loveMessage 1.8s ease forwards;
-
-animation-delay:5.2s;
-}
-
-
-.love-message .love-line{
-
-width:100px;
-
-height:1px;
-
-margin:
-0 auto 25px;
-
-background:#ff72b5;
-
-box-shadow:
-0 0 15px #ff72b5;
-}
-
-
-.love-message h2{
-
-margin:0;
-
-font-family:
-"Brush Script MT",
-"Segoe Script",
-cursive;
-
-font-size:
-clamp(42px,10vw,76px);
-
-font-weight:400;
-
-font-style:italic;
-
-color:#ff86bd;
-
-text-shadow:
-
-0 0 10px #ff5a9d,
-
-0 0 25px #ff5a9d88,
-
-0 0 55px #ff5a9d55;
-}
-
-
-.love-message p{
-
-margin:
-18px 0 0;
-
-font-family:Georgia,serif;
-
-font-size:16px;
-
-color:#f4dce8;
-
-letter-spacing:2px;
-}
-
-
-@keyframes loveMessage{
-
-0%{
-
-opacity:0;
-
-transform:
-scale(.65)
-translateY(30px);
-}
-
-20%{
-opacity:1;
-}
-
-70%{
+.intro-photo.show{
 
 opacity:1;
 
@@ -407,90 +265,357 @@ scale(1)
 translateY(0);
 }
 
-100%{
+
+/* =====================================================
+   OLD PHOTO CINEMATIC EXIT
+===================================================== */
+
+.intro-photo.zoom-out{
+
+transform:
+scale(1.35);
+
+filter:
+blur(10px);
+
+opacity:0;
+}
+
+
+/* =====================================================
+   LOVE MESSAGE
+===================================================== */
+
+.love-screen{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
+opacity:0;
+
+transform:scale(.85);
+
+pointer-events:none;
+
+transition:
+opacity .8s ease,
+transform 1s ease;
+}
+
+.love-screen.show{
+
+opacity:1;
+
+transform:scale(1);
+}
+
+.love-line{
+
+width:100px;
+
+height:1px;
+
+background:#ff72b5;
+
+box-shadow:
+0 0 20px #ff72b5;
+
+margin-bottom:26px;
+}
+
+.love-text{
+
+font-family:
+"Brush Script MT",
+"Segoe Script",
+cursive;
+
+font-size:
+clamp(42px,10vw,78px);
+
+font-style:italic;
+
+font-weight:400;
+
+color:#ff86bd;
+
+text-shadow:
+
+0 0 10px #ff5a9d,
+
+0 0 30px #ff5a9d88,
+
+0 0 65px #ff5a9d44;
+
+white-space:nowrap;
+}
+
+.love-sub{
+
+font-family:Georgia,serif;
+
+font-size:15px;
+
+letter-spacing:3px;
+
+color:#f3dce8;
+
+margin-top:20px;
+}
+
+
+/* =====================================================
+   HANDWRITING
+===================================================== */
+
+.love-text span{
+
+display:inline-block;
 
 opacity:0;
 
 transform:
-scale(1.08)
-translateY(-15px);
-}
-
-}
-
-
-/* ==================================================
-   NEW PHOTO
-================================================== */
-
-.new-photo{
+translateY(15px);
 
 animation:
-newPhoto 2s ease forwards;
-
-animation-delay:6.9s;
+none;
 }
 
+.love-screen.show .love-text span{
 
-@keyframes newPhoto{
-
-0%{
-
-opacity:0;
-
-transform:
-scale(.72)
-translateY(40px)
-rotate(4deg);
+animation:
+writeLetter .35s ease forwards;
 }
 
-15%{
-opacity:1;
+.love-screen.show .love-text span:nth-child(1){
+animation-delay:.05s;
 }
 
-70%{
-
-opacity:1;
-
-transform:
-scale(1)
-translateY(0)
-rotate(0);
+.love-screen.show .love-text span:nth-child(2){
+animation-delay:.1s;
 }
 
-100%{
-
-opacity:0;
-
-transform:
-scale(1.12)
-translateY(-10px);
+.love-screen.show .love-text span:nth-child(3){
+animation-delay:.15s;
 }
 
+.love-screen.show .love-text span:nth-child(4){
+animation-delay:.2s;
 }
 
+.love-screen.show .love-text span:nth-child(5){
+animation-delay:.25s;
+}
 
-/* ==================================================
-   INTRO EXIT
-================================================== */
+.love-screen.show .love-text span:nth-child(6){
+animation-delay:.3s;
+}
 
-@keyframes introOut{
+.love-screen.show .love-text span:nth-child(7){
+animation-delay:.35s;
+}
+
+.love-screen.show .love-text span:nth-child(8){
+animation-delay:.4s;
+}
+
+.love-screen.show .love-text span:nth-child(9){
+animation-delay:.45s;
+}
+
+.love-screen.show .love-text span:nth-child(10){
+animation-delay:.5s;
+}
+
+.love-screen.show .love-text span:nth-child(11){
+animation-delay:.55s;
+}
+
+.love-screen.show .love-text span:nth-child(12){
+animation-delay:.6s;
+}
+
+.love-screen.show .love-text span:nth-child(13){
+animation-delay:.65s;
+}
+
+.love-screen.show .love-text span:nth-child(14){
+animation-delay:.7s;
+}
+
+.love-screen.show .love-text span:nth-child(15){
+animation-delay:.75s;
+}
+
+.love-screen.show .love-text span:nth-child(16){
+animation-delay:.8s;
+}
+
+.love-screen.show .love-text span:nth-child(17){
+animation-delay:.85s;
+}
+
+.love-screen.show .love-text span:nth-child(18){
+animation-delay:.9s;
+}
+
+.love-screen.show .love-text span:nth-child(19){
+animation-delay:.95s;
+}
+
+.love-screen.show .love-text span:nth-child(20){
+animation-delay:1s;
+}
+
+@keyframes writeLetter{
 
 to{
 
+opacity:1;
+
+transform:
+translateY(0);
+}
+
+}
+
+
+/* =====================================================
+   NEW PHOTO
+===================================================== */
+
+.new-photo{
+
+position:absolute;
+
+width:min(78vw,390px);
+
+height:min(72vh,620px);
+
+border-radius:26px;
+
+overflow:hidden;
+
 opacity:0;
 
-visibility:hidden;
+background:#080808;
+
+box-shadow:
+
+0 25px 90px #000,
+
+0 0 60px #ff5aa044;
+
+transform:
+scale(.65);
+
+transition:
+opacity 1s ease,
+transform 1.3s cubic-bezier(.2,.8,.2,1);
+}
+
+.new-photo img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+display:block;
+}
+
+.new-photo.show{
+
+opacity:1;
+
+transform:
+scale(1);
+}
+
+.new-photo.hide-photo{
+
+opacity:0;
+
+transform:
+scale(1.15);
+}
+
+
+/* =====================================================
+   INTRO BUTTON
+===================================================== */
+
+.intro-next{
+
+position:absolute;
+
+bottom:9vh;
+
+left:50%;
+
+transform:
+translateX(-50%);
+
+opacity:0;
 
 pointer-events:none;
+
+border:
+1px solid #ff79b9;
+
+background:#ff79b915;
+
+color:#fff;
+
+padding:
+13px 25px;
+
+border-radius:999px;
+
+font-size:13px;
+
+letter-spacing:.5px;
+
+cursor:pointer;
+
+transition:.4s;
+
+z-index:30;
 }
 
+.intro-next.show{
+
+opacity:1;
+
+pointer-events:auto;
+}
+
+.intro-next:hover{
+
+background:#ff79b930;
+
+box-shadow:
+0 0 30px #ff79b955;
+
+transform:
+translateX(-50%)
+translateY(-2px);
 }
 
 
-/* ==================================================
+/* =====================================================
    HEADER
-================================================== */
+===================================================== */
 
 header{
 
@@ -521,7 +646,6 @@ backdrop-filter:blur(16px);
 z-index:5;
 }
 
-
 .brand{
 
 font-size:17px;
@@ -530,7 +654,6 @@ color:#f5eaf0;
 
 letter-spacing:.3px;
 }
-
 
 .brand b{
 
@@ -544,7 +667,6 @@ text-shadow:
 0 0 12px #ff72b588;
 }
 
-
 .brand .heart{
 
 color:#ff72b5;
@@ -557,7 +679,6 @@ text-shadow:
 0 0 12px #ff72b588;
 }
 
-
 nav{
 
 display:flex;
@@ -566,7 +687,6 @@ gap:32px;
 
 font-size:14px;
 }
-
 
 nav a{
 
@@ -577,16 +697,15 @@ text-decoration:none;
 transition:.3s;
 }
 
-
 nav a:hover{
 
 color:#ff81bc;
 }
 
 
-/* ==================================================
+/* =====================================================
    OPENING
-================================================== */
+===================================================== */
 
 .opening{
 
@@ -604,12 +723,10 @@ padding:
 100px 20px 70px;
 }
 
-
 .opening-inner{
 
 max-width:820px;
 }
-
 
 .kicker{
 
@@ -623,7 +740,6 @@ color:#b7b8c6;
 
 margin-bottom:24px;
 }
-
 
 .opening h1{
 
@@ -649,7 +765,6 @@ animation:
 nameGlow 3s ease-in-out infinite;
 }
 
-
 @keyframes nameGlow{
 
 0%,100%{
@@ -674,7 +789,6 @@ text-shadow:
 
 }
 
-
 .opening-line{
 
 width:120px;
@@ -685,7 +799,6 @@ background:#ff70b3;
 
 margin:35px auto;
 }
-
 
 .opening p{
 
@@ -702,7 +815,6 @@ max-width:720px;
 margin:
 0 auto 35px;
 }
-
 
 .open-btn{
 
@@ -731,14 +843,12 @@ buttonGlow 2.5s ease-in-out infinite;
 transition:.3s;
 }
 
-
 .open-btn:hover{
 
 background:#ff79b928;
 
 transform:translateY(-2px);
 }
-
 
 @keyframes buttonGlow{
 
@@ -757,9 +867,9 @@ box-shadow:
 }
 
 
-/* ==================================================
+/* =====================================================
    SECTIONS
-================================================== */
+===================================================== */
 
 .section{
 
@@ -770,7 +880,6 @@ margin:auto;
 padding:
 95px 20px;
 }
-
 
 .section-title{
 
@@ -788,7 +897,6 @@ margin:
 color:#f3d8e5;
 }
 
-
 .section-sub{
 
 text-align:center;
@@ -802,9 +910,9 @@ margin:
 }
 
 
-/* ==================================================
-   MESSAGE
-================================================== */
+/* =====================================================
+   STORY
+===================================================== */
 
 .message-box{
 
@@ -826,7 +934,6 @@ border-bottom:
 background:#090b16aa;
 }
 
-
 .message-box p{
 
 font-family:Georgia,serif;
@@ -838,7 +945,6 @@ line-height:2;
 color:#e7e6ec;
 }
 
-
 .message-box strong{
 
 color:#ff86bd;
@@ -847,19 +953,20 @@ font-weight:400;
 }
 
 
-/* ==================================================
+/* =====================================================
    REVEAL
-================================================== */
+===================================================== */
 
 .reveal{
 
 opacity:0;
 
-transform:translateY(30px);
+transform:
+translateY(30px);
 
-transition:.8s;
+transition:
+.8s;
 }
-
 
 .reveal.visible{
 
@@ -869,9 +976,9 @@ transform:none;
 }
 
 
-/* ==================================================
+/* =====================================================
    SONG
-================================================== */
+===================================================== */
 
 .song{
 
@@ -892,7 +999,6 @@ box-shadow:
 0 20px 70px #0009;
 }
 
-
 .songrow{
 
 display:flex;
@@ -901,7 +1007,6 @@ align-items:center;
 
 gap:22px;
 }
-
 
 .musicbox{
 
@@ -928,7 +1033,6 @@ place-items:center;
 font-size:51px;
 }
 
-
 .song h2{
 
 margin:
@@ -941,7 +1045,6 @@ font-size:22px;
 font-weight:500;
 }
 
-
 .song p{
 
 margin:
@@ -952,16 +1055,15 @@ color:#b9a8b3;
 font-size:14px;
 }
 
-
 audio{
 
 width:100%;
 }
 
 
-/* ==================================================
+/* =====================================================
    SCENE
-================================================== */
+===================================================== */
 
 .scene{
 
@@ -986,7 +1088,6 @@ linear-gradient(
 );
 }
 
-
 .scene:before{
 
 content:"";
@@ -994,6 +1095,7 @@ content:"";
 position:absolute;
 
 left:-10%;
+
 right:-10%;
 
 bottom:-20%;
@@ -1013,7 +1115,6 @@ at 50% 100%
 );
 }
 
-
 .couple{
 
 position:absolute;
@@ -1030,7 +1131,6 @@ width:380px;
 height:340px;
 }
 
-
 .person{
 
 position:absolute;
@@ -1042,7 +1142,6 @@ background:#020204;
 border-radius:
 48% 48% 8% 8%;
 }
-
 
 .person:before{
 
@@ -1066,7 +1165,6 @@ transform:
 translateX(-50%);
 }
 
-
 .p1{
 
 width:155px;
@@ -1075,9 +1173,9 @@ height:235px;
 
 left:34px;
 
-transform:rotate(5deg);
+transform:
+rotate(5deg);
 }
-
 
 .p2{
 
@@ -1087,19 +1185,196 @@ height:275px;
 
 right:30px;
 
-transform:rotate(-2deg);
+transform:
+rotate(-2deg);
 }
 
 
-/* ==================================================
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline{
+
+position:relative;
+
+max-width:850px;
+
+margin:
+70px auto 0;
+
+padding:
+20px 0;
+}
+
+.timeline:before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:0;
+
+bottom:0;
+
+width:1px;
+
+background:
+linear-gradient(
+transparent,
+#ff78b966,
+#ff78b966,
+transparent
+);
+
+transform:
+translateX(-50%);
+}
+
+.timeline-item{
+
+position:relative;
+
+width:50%;
+
+padding:
+30px 45px;
+
+opacity:0;
+
+transform:
+translateY(40px);
+
+transition:
+.9s ease;
+}
+
+.timeline-item.visible{
+
+opacity:1;
+
+transform:
+translateY(0);
+}
+
+.timeline-item:nth-child(odd){
+
+left:0;
+
+text-align:right;
+}
+
+.timeline-item:nth-child(even){
+
+left:50%;
+
+text-align:left;
+}
+
+.timeline-dot{
+
+position:absolute;
+
+top:48px;
+
+width:11px;
+
+height:11px;
+
+border-radius:50%;
+
+background:#ff78b9;
+
+box-shadow:
+0 0 15px #ff78b9;
+}
+
+.timeline-item:nth-child(odd)
+.timeline-dot{
+
+right:-5px;
+}
+
+.timeline-item:nth-child(even)
+.timeline-dot{
+
+left:-5px;
+}
+
+.timeline-card{
+
+display:inline-block;
+
+max-width:330px;
+
+background:#0b0d19;
+
+border:
+1px solid #ffffff14;
+
+border-radius:22px;
+
+overflow:hidden;
+
+box-shadow:
+0 20px 60px #0008;
+
+text-align:left;
+}
+
+.timeline-card img{
+
+width:100%;
+
+height:330px;
+
+display:block;
+
+object-fit:cover;
+}
+
+.timeline-content{
+
+padding:
+20px;
+}
+
+.timeline-content h3{
+
+margin:
+0 0 8px;
+
+font-family:Georgia,serif;
+
+font-weight:400;
+
+color:#ff86bd;
+
+font-size:20px;
+}
+
+.timeline-content p{
+
+margin:0;
+
+color:#aaaab7;
+
+font-size:13px;
+
+line-height:1.7;
+}
+
+
+/* =====================================================
    GALLERY
-================================================== */
+===================================================== */
 
 .gallery{
 
 padding-top:100px;
 }
-
 
 .grid{
 
@@ -1110,7 +1385,6 @@ repeat(2,1fr);
 
 gap:16px;
 }
-
 
 .photo{
 
@@ -1129,7 +1403,6 @@ box-shadow:
 cursor:pointer;
 }
 
-
 .photo img{
 
 width:100%;
@@ -1140,9 +1413,9 @@ display:block;
 
 object-fit:cover;
 
-transition:.6s;
+transition:
+.6s;
 }
-
 
 .photo:hover img{
 
@@ -1150,13 +1423,11 @@ transform:
 scale(1.045);
 }
 
-
 .photo:first-child{
 
 grid-column:
 span 2;
 }
-
 
 .photo:first-child img{
 
@@ -1164,9 +1435,9 @@ height:470px;
 }
 
 
-/* ==================================================
+/* =====================================================
    LIGHTBOX
-================================================== */
+===================================================== */
 
 .lightbox{
 
@@ -1187,12 +1458,10 @@ padding:25px;
 z-index:20;
 }
 
-
 .lightbox.open{
 
 display:flex;
 }
-
 
 .lightbox img{
 
@@ -1200,7 +1469,6 @@ max-width:94vw;
 
 max-height:88vh;
 }
-
 
 .close{
 
@@ -1217,50 +1485,140 @@ cursor:pointer;
 }
 
 
-/* ==================================================
-   QUOTE
-================================================== */
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
 
-.quote{
+.final-section{
+
+min-height:80vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
 
 text-align:center;
 
 padding:
-95px 20px 70px;
+120px 20px;
 }
 
+.final-inner{
 
-.quote p{
+max-width:800px;
+}
+
+.final-small{
+
+font-size:13px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:#a9aab8;
+
+margin-bottom:25px;
+}
+
+.final-title{
 
 font-family:Georgia,serif;
 
-font-size:28px;
+font-size:
+clamp(32px,7vw,60px);
 
-line-height:1.55;
+font-weight:400;
 
-color:#eee;
+line-height:1.3;
 
-max-width:850px;
+margin:0;
 
-margin:auto;
+color:#f5dce8;
+}
+
+.final-title span{
+
+color:#ff7cba;
+
+font-style:italic;
+}
+
+.final-photo{
+
+width:
+min(80vw,360px);
+
+height:420px;
+
+margin:
+45px auto;
+
+border-radius:24px;
+
+overflow:hidden;
+
+box-shadow:
+0 25px 80px #000,
+0 0 50px #ff5aa033;
+}
+
+.final-photo img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+}
+
+.final-text{
+
+font-family:Georgia,serif;
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#d9d8e0;
+
+margin:
+0 auto 35px;
+}
+
+.replay-btn{
+
+border:
+1px solid #ff79b9;
+
+background:#ff79b915;
+
+color:#fff;
+
+border-radius:999px;
+
+padding:
+14px 28px;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+.replay-btn:hover{
+
+background:#ff79b930;
+
+box-shadow:
+0 0 25px #ff79b955;
 }
 
 
-.quote span{
-
-display:block;
-
-margin-top:18px;
-
-color:#ff7bb8;
-
-font-size:14px;
-}
-
-
-/* ==================================================
+/* =====================================================
    FOOTER
-================================================== */
+===================================================== */
 
 footer{
 
@@ -1274,7 +1632,6 @@ border-top:
 
 color:#8f909b;
 }
-
 
 footer strong{
 
@@ -1292,43 +1649,43 @@ margin-bottom:10px;
 }
 
 
-/* ==================================================
+/* =====================================================
    MOBILE
-================================================== */
+===================================================== */
 
 @media(max-width:700px){
 
 nav{
+
 display:none;
 }
 
-
 .opening h1{
+
 font-size:64px;
 }
 
-
 .opening p{
+
 font-size:17px;
 }
 
-
 .section{
+
 padding:
 75px 16px;
 }
 
-
 .message-box{
+
 padding:
 35px 20px;
 }
 
-
 .message-box p{
+
 font-size:17px;
 }
-
 
 .song{
 
@@ -1338,7 +1695,6 @@ margin:
 padding:18px;
 }
 
-
 .musicbox{
 
 width:78px;
@@ -1346,11 +1702,10 @@ width:78px;
 height:78px;
 }
 
-
 .scene{
+
 height:400px;
 }
-
 
 .couple{
 
@@ -1358,44 +1713,85 @@ transform:
 translateX(-50%)
 scale(.75);
 
-transform-origin:
-bottom;
+transform-origin:bottom;
 }
 
-
 .grid{
+
 gap:9px;
 }
 
-
 .photo img{
+
 height:230px;
 }
 
-
 .photo:first-child img{
+
 height:320px;
 }
 
+.timeline:before{
 
-.quote p{
-font-size:22px;
+left:15px;
+
+transform:none;
 }
 
+.timeline-item{
 
-/* INTRO MOBILE */
+width:100%;
+
+left:0 !important;
+
+text-align:left !important;
+
+padding:
+30px 15px 30px 45px;
+}
+
+.timeline-item .timeline-dot{
+
+left:10px !important;
+
+right:auto !important;
+}
+
+.timeline-card{
+
+max-width:100%;
+}
+
+.timeline-card img{
+
+height:330px;
+}
+
+.final-section{
+
+min-height:75vh;
+
+padding:
+100px 20px;
+}
+
+.final-photo{
+
+height:380px;
+}
 
 .intro-text{
+
 font-size:23px;
 }
 
-
 .intro-text span{
+
 font-size:16px;
 }
 
-
-.intro-media{
+.intro-photo,
+.new-photo{
 
 width:82vw;
 
@@ -1404,29 +1800,29 @@ height:68vh;
 border-radius:20px;
 }
 
-
-.love-message h2{
+.love-text{
 
 font-size:
-clamp(
-38px,
-10vw,
-62px
-);
+clamp(38px,10vw,62px);
+}
+
+.love-sub{
+
+font-size:12px;
+
+letter-spacing:2px;
 }
 
 }
 
 
-/* ==================================================
+/* =====================================================
    REDUCED MOTION
-================================================== */
+===================================================== */
 
 @media(prefers-reduced-motion:reduce){
 
-*,
-*:before,
-*:after{
+*{
 
 animation-duration:.01ms !important;
 
@@ -1447,88 +1843,129 @@ transition-duration:.01ms !important;
 <body>
 
 
-<!-- ==================================================
+<!-- =====================================================
      INTRO
-================================================== -->
+===================================================== -->
 
 <div id="intro">
 
 
-    <!-- 1. SAME OLD MESSAGE -->
+<!-- OLD MESSAGE -->
 
-    <div class="intro-text">
+<div
+class="intro-text"
+id="introText"
+>
 
-        <div>
-            For someone very special...
-        </div>
+<div>
+For someone very special...
+</div>
 
-        <span>
-            I made something for you. ♡
-        </span>
+<span>
+I made something for you. ♡
+</span>
 
-    </div>
-
-
-    <!-- 2. OLD PHOTO -->
-
-    <div
-        class="intro-media old-photo"
-    >
-
-        <img
-            src="IMG_0774.jpeg"
-            alt="Our memory"
-        >
-
-    </div>
+</div>
 
 
-    <!-- 3. LOVE MESSAGE -->
+<!-- OLD PHOTO -->
 
-    <div class="love-message">
+<div
+class="intro-photo"
+id="oldPhoto"
+>
 
-        <div class="love-line"></div>
+<img
+src="IMG_0774.jpeg"
+alt="Our memory"
+>
 
-        <h2>
-            I love you mariomtyyyy ♡
-        </h2>
-
-        <p>
-            always & forever
-        </p>
-
-        <div
-            class="love-line"
-            style="
-            margin-top:25px;
-            margin-bottom:0;
-            "
-        ></div>
-
-    </div>
+</div>
 
 
-    <!-- 4. NEW PHOTO -->
+<!-- LOVE MESSAGE -->
 
-    <div
-        class="intro-media new-photo"
-    >
+<div
+class="love-screen"
+id="loveScreen"
+>
 
-        <img
-            src="IMG_0786.jpeg"
-            alt="Our memory"
-        >
+<div class="love-line"></div>
 
-    </div>
+<div class="love-text">
+
+<span>I</span>
+<span>&nbsp;</span>
+<span>l</span>
+<span>o</span>
+<span>v</span>
+<span>e</span>
+<span>&nbsp;</span>
+<span>y</span>
+<span>o</span>
+<span>u</span>
+<span>&nbsp;</span>
+<span>m</span>
+<span>a</span>
+<span>r</span>
+<span>i</span>
+<span>o</span>
+<span>m</span>
+<span>t</span>
+<span>y</span>
+<span>y</span>
+<span>y</span>
+
+</div>
+
+<div class="love-sub">
+always & forever ♡
+</div>
+
+<div class="love-line"
+style="
+margin-top:25px;
+margin-bottom:0;
+">
+</div>
+
+</div>
+
+
+<!-- NEW PHOTO -->
+
+<div
+class="new-photo"
+id="newPhoto"
+>
+
+<img
+src="IMG_0786.jpeg"
+alt="Our memory"
+>
+
+</div>
+
+
+<!-- INTRO BUTTON -->
+
+<button
+class="intro-next"
+id="introNext"
+>
+
+Okay... now keep going →
+
+</button>
 
 
 </div>
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      HEADER
-================================================== -->
+===================================================== -->
 
 <header>
 
@@ -1565,9 +2002,9 @@ Memories
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      OPENING
-================================================== -->
+===================================================== -->
 
 <section
 class="opening"
@@ -1628,15 +2065,14 @@ Open your surprise
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      STORY
-================================================== -->
+===================================================== -->
 
 <section
 class="section reveal"
 id="story"
 >
-
 
 <h2 class="section-title">
 
@@ -1657,7 +2093,6 @@ that was truly yours.
 
 <div class="message-box">
 
-
 <p>
 
 I could have just sent you
@@ -1671,8 +2106,9 @@ you mean too much to me for that.
 
 So I made this little place
 for your memories,
-your smile, and one song
-that made me think of you.
+your smile,
+and one song that made
+me think of you.
 
 <br>
 
@@ -1687,27 +2123,24 @@ you are to me.
 
 </p>
 
-
 </div>
 
 </section>
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      SONG
-================================================== -->
+===================================================== -->
 
 <section
 class="section reveal"
 id="song"
 >
 
-
 <h2 class="section-title">
 A song for you
 </h2>
-
 
 <p class="section-sub">
 Special Song for Marioma
@@ -1716,9 +2149,7 @@ Special Song for Marioma
 
 <div class="song">
 
-
 <div class="songrow">
-
 
 <div class="musicbox">
 ♫
@@ -1727,11 +2158,9 @@ Special Song for Marioma
 
 <div style="flex:1">
 
-
 <h2>
 Special Song for Marioma
 </h2>
-
 
 <p>
 Just press play.
@@ -1750,12 +2179,9 @@ type="audio/mpeg"
 
 </audio>
 
-
 </div>
 
-
 </div>
-
 
 </div>
 
@@ -1763,20 +2189,177 @@ type="audio/mpeg"
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      SCENE
-================================================== -->
+===================================================== -->
 
 <section class="scene">
 
-
 <div class="couple">
-
 
 <div class="person p1"></div>
 
 <div class="person p2"></div>
 
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+
+<section
+class="section"
+id="timeline"
+>
+
+<h2 class="section-title">
+
+A few moments...
+
+</h2>
+
+<p class="section-sub">
+
+Some moments stay with you.
+
+</p>
+
+
+<div class="timeline">
+
+
+<!-- 1 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<img
+src="IMG_0774.jpeg"
+alt="Memory"
+loading="lazy"
+>
+
+<div class="timeline-content">
+
+<h3>
+The beginning
+</h3>
+
+<p>
+One picture.
+One moment.
+A memory I still love.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 2 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<img
+src="IMG_0786.jpeg"
+alt="Memory"
+loading="lazy"
+>
+
+<div class="timeline-content">
+
+<h3>
+A favorite one
+</h3>
+
+<p>
+Some pictures don't need
+a caption.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 3 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<img
+src="IMG_8886.jpeg"
+alt="Memory"
+loading="lazy"
+>
+
+<div class="timeline-content">
+
+<h3>
+Another memory
+</h3>
+
+<p>
+And somehow,
+it became one of my favorites.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- 4 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<img
+src="IMG_8837.jpeg"
+alt="Memory"
+loading="lazy"
+>
+
+<div class="timeline-content">
+
+<h3>
+Still here
+</h3>
+
+<p>
+And we're still making
+memories.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -1784,18 +2367,19 @@ type="audio/mpeg"
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      MEMORIES
-================================================== -->
+===================================================== -->
 
 <section
 class="gallery section reveal"
 id="memories"
 >
 
-
 <h2 class="section-title">
+
 Our Memories
+
 </h2>
 
 
@@ -1810,8 +2394,6 @@ Some memories become home.
 <div class="grid">
 
 
-<!-- NEW PHOTO -->
-
 <div class="photo">
 
 <img
@@ -1823,8 +2405,6 @@ alt="Memory"
 </div>
 
 
-<!-- OLD PHOTO -->
-
 <div class="photo">
 
 <img
@@ -1835,8 +2415,6 @@ alt="Memory"
 
 </div>
 
-
-<!-- EXISTING PHOTOS -->
 
 <div class="photo">
 
@@ -1954,9 +2532,9 @@ alt="Memory"
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      LIGHTBOX
-================================================== -->
+===================================================== -->
 
 <div
 class="lightbox"
@@ -1966,7 +2544,6 @@ onclick="
 this.classList.remove('open')
 "
 >
-
 
 <div class="close">
 ×
@@ -1978,52 +2555,107 @@ id="lightboxImg"
 alt="Full memory"
 >
 
-
 </div>
 
 
 
-<!-- ==================================================
-     QUOTE
-================================================== -->
+<!-- =====================================================
+     FINAL
+===================================================== -->
 
 <section
-class="quote reveal"
+class="final-section"
 >
 
+<div class="final-inner">
 
-<p>
 
-“Some people come into your life
-and quietly become one of the
-best parts of it.”
+<div class="final-small">
+
+Before you leave...
+
+</div>
+
+
+<h2 class="final-title">
+
+Look at me.
+
+<br>
+
+<span>
+I love you, Marioma.
+</span>
+
+</h2>
+
+
+<div class="final-photo">
+
+<img
+src="IMG_0786.jpeg"
+alt="Marioma"
+loading="lazy"
+>
+
+</div>
+
+
+<p class="final-text">
+
+More than this little website
+could ever say.
+
+<br>
+
+And if you ever forget...
+
+<br>
+
+come back here. ♡
 
 </p>
 
 
-<span>
-— for Marioma
-</span>
+<button
+class="replay-btn"
+onclick="
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
 
+setTimeout(
+startIntro,
+800
+);
+"
+>
+
+Replay everything ♡
+
+</button>
+
+
+</div>
 
 </section>
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      FOOTER
-================================================== -->
+===================================================== -->
 
 <footer>
 
-
 <strong>
+
 Made with love for Marioma
+
 </strong>
 
-
 A little page made just for you.
-
 
 </footer>
 
@@ -2032,58 +2664,255 @@ A little page made just for you.
 <script>
 
 
-/* ==================================================
-   PHOTO LIGHTBOX
-================================================== */
+/* =====================================================
+   INTRO
+===================================================== */
+
+const intro =
+document.getElementById("intro");
+
+const introText =
+document.getElementById("introText");
+
+const oldPhoto =
+document.getElementById("oldPhoto");
+
+const loveScreen =
+document.getElementById("loveScreen");
+
+const newPhoto =
+document.getElementById("newPhoto");
+
+const introNext =
+document.getElementById("introNext");
+
+
+let introStarted = false;
+
+
+function startIntro(){
+
+introStarted = true;
+
+
+/* reset */
+
+intro.classList.remove("hide");
+
+introText.classList.remove("hide-text");
+
+oldPhoto.classList.remove(
+"show",
+"zoom-out"
+);
+
+loveScreen.classList.remove(
+"show"
+);
+
+newPhoto.classList.remove(
+"show",
+"hide-photo"
+);
+
+introNext.classList.remove(
+"show"
+);
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+setTimeout(() => {
+
+introText.classList.add(
+"hide-text"
+);
+
+},3000);
+
+
+/* =========================
+   OLD PHOTO
+========================= */
+
+setTimeout(() => {
+
+oldPhoto.classList.add(
+"show"
+);
+
+},3200);
+
+
+/* =========================
+   ZOOM OLD PHOTO
+========================= */
+
+setTimeout(() => {
+
+oldPhoto.classList.add(
+"zoom-out"
+);
+
+},4900);
+
+
+/* =========================
+   I LOVE YOU
+========================= */
+
+setTimeout(() => {
+
+loveScreen.classList.add(
+"show"
+);
+
+},5400);
+
+
+/* =========================
+   HIDE LOVE MESSAGE
+========================= */
+
+setTimeout(() => {
+
+loveScreen.classList.remove(
+"show"
+);
+
+},6900);
+
+
+/* =========================
+   NEW PHOTO
+========================= */
+
+setTimeout(() => {
+
+newPhoto.classList.add(
+"show"
+);
+
+},7100);
+
+
+/* =========================
+   BUTTON
+========================= */
+
+setTimeout(() => {
+
+introNext.classList.add(
+"show"
+);
+
+},8200);
+
+}
+
+
+/* START */
+
+window.addEventListener(
+"load",
+() => {
+
+setTimeout(
+startIntro,
+300
+);
+
+}
+);
+
+
+/* =====================================================
+   INTRO BUTTON
+===================================================== */
+
+introNext.addEventListener(
+"click",
+() => {
+
+newPhoto.classList.add(
+"hide-photo"
+);
+
+introNext.classList.remove(
+"show"
+);
+
+setTimeout(() => {
+
+intro.classList.add(
+"hide"
+);
+
+},600);
+
+}
+);
+
+
+/* =====================================================
+   TIMELINE REVEAL
+===================================================== */
+
+const timelineObserver =
+new IntersectionObserver(
+
+entries => {
+
+entries.forEach(
+entry => {
+
+if(
+entry.isIntersecting
+){
+
+entry.target
+.classList
+.add("visible");
+
+}
+
+});
+
+},
+
+{
+threshold:.18
+}
+
+);
+
 
 document
-.querySelectorAll(".photo img")
-.forEach(img => {
+.querySelectorAll(".timeline-item")
+.forEach(
+item => {
 
+timelineObserver.observe(
+item
+);
 
-img.addEventListener(
-"click",
-function(event){
-
-event.stopPropagation();
-
-
-const lightbox =
-document.getElementById(
-"lightbox"
+}
 );
 
 
-const lightboxImg =
-document.getElementById(
-"lightboxImg"
-);
-
-
-lightboxImg.src =
-this.src;
-
-
-lightbox.classList.add(
-"open"
-);
-
-});
-
-});
-
-
-
-/* ==================================================
-   SCROLL REVEAL
-================================================== */
+/* =====================================================
+   GENERAL REVEAL
+===================================================== */
 
 const observer =
 new IntersectionObserver(
 
 entries => {
 
-entries.forEach(entry => {
+entries.forEach(
+entry => {
 
 if(
 entry.isIntersecting
@@ -2108,17 +2937,59 @@ threshold:.12
 
 document
 .querySelectorAll(".reveal")
-.forEach(element => {
+.forEach(
+element => {
 
-observer.observe(element);
+observer.observe(
+element
+);
 
-});
+}
+);
 
 
+/* =====================================================
+   LIGHTBOX
+===================================================== */
 
-/* ==================================================
-   ESC CLOSE LIGHTBOX
-================================================== */
+document
+.querySelectorAll(".photo img")
+.forEach(
+img => {
+
+img.addEventListener(
+"click",
+function(event){
+
+event.stopPropagation();
+
+const lightbox =
+document.getElementById(
+"lightbox"
+);
+
+const lightboxImg =
+document.getElementById(
+"lightboxImg"
+);
+
+lightboxImg.src =
+this.src;
+
+lightbox.classList.add(
+"open"
+);
+
+}
+);
+
+}
+);
+
+
+/* =====================================================
+   ESC CLOSE
+===================================================== */
 
 document.addEventListener(
 "keydown",
@@ -2135,10 +3006,12 @@ document
 
 }
 
-});
+}
+);
 
 </script>
 
 
 </body>
+
 </html>
