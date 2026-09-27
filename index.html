@@ -54,55 +54,412 @@ body::before{
 
 
 /* =====================================================
-   INTRO
+   PASSWORD SCREEN
 ===================================================== */
 
-#intro{
+#passwordScreen{
     position:fixed;
     inset:0;
-    z-index:9999;
 
-    background:#020204;
+    z-index:11000;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(160,70,110,.13),
+            transparent 48%
+        ),
+        #020204;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    opacity:1;
+
+    transition:opacity 1.4s ease;
+}
+
+#passwordScreen.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.password-card{
+    width:min(90vw,520px);
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+}
+
+.password-lock{
+    width:58px;
+    height:58px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
+    border:1px solid rgba(232,167,201,.35);
+
+    border-radius:50%;
+
+    color:#e8a7c9;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+        0 0 45px rgba(232,167,201,.08);
+}
+
+.password-small{
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:10px;
+
+    color:#777;
+
+    margin-bottom:16px;
+}
+
+.password-card h1{
+    font-family:"Great Vibes",cursive;
+
+    font-weight:400;
+
+    font-size:clamp(45px,9vw,75px);
+
+    line-height:1;
+
+    margin-bottom:18px;
+}
+
+.password-hint{
+    font-family:"Cormorant Garamond",serif;
+
+    color:#c9aabb;
+
+    font-size:21px;
+
+    letter-spacing:1px;
+
+    margin-bottom:30px;
+}
+
+#passwordForm{
+    width:min(88vw,360px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+#passwordInput{
+    width:100%;
+
+    padding:15px 20px;
+
+    border-radius:50px;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    outline:none;
+
+    background:rgba(255,255,255,.04);
+
+    color:white;
+
+    text-align:center;
+
+    font-size:16px;
+
+    letter-spacing:7px;
+
+    font-family:"Montserrat",sans-serif;
+
+    transition:.3s;
+}
+
+#passwordInput:focus{
+    border-color:rgba(232,167,201,.55);
+
+    box-shadow:
+        0 0 25px rgba(232,167,201,.08);
+}
+
+#passwordInput::placeholder{
+    letter-spacing:1px;
+
+    color:#666;
+}
+
+#passwordForm button{
+    border:1px solid rgba(255,255,255,.25);
+
+    background:transparent;
+
+    color:white;
+
+    padding:14px 25px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-family:"Montserrat",sans-serif;
+
+    transition:.3s;
+}
+
+#passwordForm button:hover{
+    background:white;
+
+    color:#050509;
+}
+
+#passwordError{
+    min-height:20px;
+
+    margin-top:15px;
+
+    color:#c994b2;
+
+    font-size:12px;
+
+    opacity:0;
+
+    transition:.3s;
+}
+
+#passwordError.show{
+    opacity:1;
+}
+
+.password-wrong{
+    animation:
+        passwordShake .35s ease;
+}
+
+@keyframes passwordShake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-8px);
+    }
+
+    75%{
+        transform:translateX(8px);
+    }
+
+}
+
+
+/* =====================================================
+   HANDWRITING INTRO
+===================================================== */
+
+#handIntro{
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    background:#020204;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    opacity:1;
+
+    transition:
+        opacity 1.4s ease;
+
+    overflow:hidden;
+}
+
+#handIntro.hide{
+    opacity:0;
+
+    pointer-events:none;
+}
+
+.handIntro-content{
+    width:min(88vw,700px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.handwriting{
+    width:min(88vw,650px);
+
+    max-height:65vh;
+
+    object-fit:contain;
+
+    opacity:0;
+
+    transform:
+        scale(.94)
+        translateY(10px);
+
+    filter:
+        drop-shadow(
+            0 15px 30px
+            rgba(0,0,0,.25)
+        );
+
+    animation:
+        handwritingAppear
+        1.2s
+        ease
+        forwards;
+}
+
+.handIntro-text{
+    margin-top:25px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            55px
+        );
+
+    color:#e8a7c9;
+
+    opacity:0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        handTextAppear
+        1.1s
+        ease
+        .7s
+        forwards;
+}
+
+@keyframes handwritingAppear{
+
+    to{
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+@keyframes handTextAppear{
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   ORIGINAL INTRO
+===================================================== */
+
+#intro{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    background:#020204;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
     overflow:hidden;
 
-    transition:opacity 1s ease;
+    transition:
+        opacity 1s ease;
 }
 
 .intro-text{
     text-align:center;
+
     padding:30px;
+
     transition:1s ease;
 }
 
 .intro-small{
     font-size:13px;
+
     letter-spacing:5px;
+
     text-transform:uppercase;
+
     color:#aaa;
+
     margin-bottom:25px;
 }
 
 .intro-main{
     font-family:"Cormorant Garamond",serif;
-    font-size:clamp(38px,8vw,75px);
+
+    font-size:
+        clamp(
+            38px,
+            8vw,
+            75px
+        );
 }
 
 .intro-heart{
     color:#e6a8c8;
 }
 
-
-/* old image */
-
 .intro-photo{
     position:absolute;
 
     width:min(75vw,420px);
+
     height:min(75vw,520px);
 
     object-fit:cover;
@@ -115,7 +472,9 @@ body::before{
 
     filter:blur(8px);
 
-    box-shadow:0 30px 80px rgba(0,0,0,.7);
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.7);
 
     transition:
         opacity 1.2s ease,
@@ -125,25 +484,29 @@ body::before{
 
 .intro-photo.show{
     opacity:1;
+
     transform:scale(1);
+
     filter:blur(0);
 }
 
 .intro-photo.leave{
     opacity:0;
+
     transform:scale(1.18);
+
     filter:blur(10px);
 }
 
-
-/* love screen */
-
 .love-screen{
     position:absolute;
+
     inset:0;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -151,10 +514,15 @@ body::before{
     opacity:0;
 
     background:
-        radial-gradient(circle,rgba(160,70,110,.16),transparent 50%),
+        radial-gradient(
+            circle,
+            rgba(160,70,110,.16),
+            transparent 50%
+        ),
         #020204;
 
-    transition:opacity .8s ease;
+    transition:
+        opacity .8s ease;
 }
 
 .love-screen.show{
@@ -163,7 +531,13 @@ body::before{
 
 .love-title{
     font-family:"Great Vibes",cursive;
-    font-size:clamp(45px,10vw,100px);
+
+    font-size:
+        clamp(
+            45px,
+            10vw,
+            100px
+        );
 }
 
 .love-sub{
@@ -174,24 +548,29 @@ body::before{
     font-family:"Cormorant Garamond",serif;
 
     font-size:25px;
+
     letter-spacing:2px;
 
     opacity:0;
 
-    animation:fadeSub 1.5s 1.5s forwards;
+    animation:
+        fadeSub
+        1.5s
+        1.5s
+        forwards;
 }
 
 @keyframes fadeSub{
-    to{opacity:1}
+    to{
+        opacity:1;
+    }
 }
-
-
-/* new photo */
 
 .new-photo{
     position:absolute;
 
     width:min(78vw,430px);
+
     height:min(78vw,540px);
 
     object-fit:cover;
@@ -202,9 +581,13 @@ body::before{
 
     transform:scale(.9);
 
-    filter:brightness(.5) blur(5px);
+    filter:
+        brightness(.5)
+        blur(5px);
 
-    box-shadow:0 30px 90px rgba(0,0,0,.8);
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.8);
 
     transition:
         opacity 1.3s ease,
@@ -214,12 +597,17 @@ body::before{
 
 .new-photo.show{
     opacity:1;
+
     transform:scale(1);
-    filter:brightness(1) blur(0);
+
+    filter:
+        brightness(1)
+        blur(0);
 }
 
 .intro-next{
     position:absolute;
+
     bottom:45px;
 
     opacity:0;
@@ -230,7 +618,9 @@ body::before{
 
     color:white;
 
-    border:1px solid rgba(255,255,255,.35);
+    border:
+        1px solid
+        rgba(255,255,255,.35);
 
     padding:14px 25px;
 
@@ -243,6 +633,7 @@ body::before{
 
 .intro-next:hover{
     background:white;
+
     color:black;
 }
 
@@ -253,15 +644,14 @@ body::before{
 
 #site{
     opacity:0;
-    transition:opacity 1.5s ease;
+
+    transition:
+        opacity 1.5s ease;
 }
 
 #site.visible{
     opacity:1;
 }
-
-
-/* header */
 
 header{
     position:fixed;
@@ -273,20 +663,26 @@ header{
     z-index:100;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     padding:22px 6%;
 
-    background:rgba(5,5,9,.55);
+    background:
+        rgba(5,5,9,.55);
 
     backdrop-filter:blur(15px);
 
-    border-bottom:1px solid rgba(255,255,255,.06);
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 .logo{
     font-family:"Cormorant Garamond",serif;
+
     font-size:20px;
 }
 
@@ -296,14 +692,17 @@ header{
 
 nav{
     display:flex;
+
     gap:25px;
 }
 
 nav a{
     color:#aaa;
+
     text-decoration:none;
 
     font-size:12px;
+
     letter-spacing:1px;
 
     transition:.3s;
@@ -313,19 +712,21 @@ nav a:hover{
     color:white;
 }
 
-
-/* hero */
-
 .hero{
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
 
-    padding:100px 20px 60px;
+    padding:
+        100px
+        20px
+        60px;
 }
 
 .hero-content{
@@ -334,9 +735,11 @@ nav a:hover{
 
 .eyebrow{
     text-transform:uppercase;
+
     letter-spacing:5px;
 
     font-size:11px;
+
     color:#999;
 
     margin-bottom:25px;
@@ -345,7 +748,12 @@ nav a:hover{
 .hero h1{
     font-family:"Great Vibes",cursive;
 
-    font-size:clamp(70px,15vw,150px);
+    font-size:
+        clamp(
+            70px,
+            15vw,
+            150px
+        );
 
     font-weight:400;
 
@@ -369,7 +777,9 @@ nav a:hover{
 .hero-btn{
     margin-top:35px;
 
-    border:1px solid rgba(255,255,255,.25);
+    border:
+        1px solid
+        rgba(255,255,255,.25);
 
     background:transparent;
 
@@ -386,11 +796,9 @@ nav a:hover{
 
 .hero-btn:hover{
     background:white;
+
     color:#050509;
 }
-
-
-/* sections */
 
 section{
     padding:110px 7%;
@@ -411,18 +819,21 @@ section{
 .section-title{
     font-family:"Cormorant Garamond",serif;
 
-    font-size:clamp(40px,7vw,75px);
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            75px
+        );
 
     font-weight:400;
 
     margin-bottom:30px;
 }
 
-
-/* story */
-
 .story{
     max-width:900px;
+
     margin:auto;
 
     text-align:center;
@@ -438,9 +849,6 @@ section{
     font-size:22px;
 }
 
-
-/* song */
-
 .song{
     text-align:center;
 }
@@ -452,11 +860,14 @@ section{
 
     padding:35px;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.08);
 
     border-radius:25px;
 
-    background:rgba(255,255,255,.025);
+    background:
+        rgba(255,255,255,.025);
 }
 
 .song-title{
@@ -478,13 +889,15 @@ audio{
 
 .memories{
     max-width:1200px;
+
     margin:auto;
 }
 
 .memory-grid{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
     gap:18px;
 
@@ -507,11 +920,13 @@ audio{
 
 .memory img{
     width:100%;
+
     height:100%;
 
     object-fit:cover;
 
-    transition:transform .7s ease;
+    transition:
+        transform .7s ease;
 }
 
 .memory:hover img{
@@ -525,12 +940,16 @@ audio{
     right:0;
     bottom:0;
 
-    padding:40px 20px 20px;
+    padding:
+        40px
+        20px
+        20px;
 
-    background:linear-gradient(
-        transparent,
-        rgba(0,0,0,.85)
-    );
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.85)
+        );
 
     font-family:"Cormorant Garamond",serif;
 
@@ -553,7 +972,10 @@ audio{
 .puzzle-intro{
     max-width:620px;
 
-    margin:0 auto 35px;
+    margin:
+        0
+        auto
+        35px;
 
     color:#999;
 
@@ -565,9 +987,13 @@ audio{
 
     margin:40px auto;
 
-    padding:35px 20px;
+    padding:
+        35px
+        20px;
 
-    border:1px solid rgba(255,255,255,.09);
+    border:
+        1px solid
+        rgba(255,255,255,.09);
 
     border-radius:28px;
 
@@ -584,7 +1010,8 @@ audio{
 
     margin-bottom:15px;
 
-    transition:transform .5s ease;
+    transition:
+        transform .5s ease;
 }
 
 .locked-memory h3{
@@ -603,9 +1030,6 @@ audio{
     font-size:13px;
 }
 
-
-/* puzzle */
-
 #puzzle{
     width:min(90vw,450px);
 
@@ -615,9 +1039,11 @@ audio{
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
-    grid-template-rows:repeat(3,1fr);
+    grid-template-rows:
+        repeat(3,1fr);
 
     gap:4px;
 
@@ -639,13 +1065,15 @@ audio{
 
     cursor:grab;
 
-    background-image:url("IMG_0786.jpeg");
+    background-image:
+        url("IMG_0786.jpeg");
 
     background-size:300% 300%;
 
     border-radius:3px;
 
     min-width:0;
+
     min-height:0;
 
     transition:
@@ -658,7 +1086,9 @@ audio{
 }
 
 .puzzle-piece.selected{
-    outline:3px solid #e8a7c9;
+    outline:
+        3px solid
+        #e8a7c9;
 
     outline-offset:-3px;
 
@@ -671,11 +1101,9 @@ audio{
 
 .puzzle-piece.correct{
     box-shadow:
-        inset 0 0 0 2px rgba(255,255,255,.5);
+        inset 0 0 0 2px
+        rgba(255,255,255,.5);
 }
-
-
-/* puzzle controls */
 
 .puzzle-controls{
     display:flex;
@@ -688,13 +1116,17 @@ audio{
 }
 
 .puzzle-btn{
-    border:1px solid rgba(255,255,255,.2);
+    border:
+        1px solid
+        rgba(255,255,255,.2);
 
     background:transparent;
 
     color:white;
 
-    padding:13px 23px;
+    padding:
+        13px
+        23px;
 
     border-radius:50px;
 
@@ -705,6 +1137,7 @@ audio{
 
 .puzzle-btn:hover{
     background:white;
+
     color:black;
 }
 
@@ -735,6 +1168,7 @@ audio{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -743,7 +1177,8 @@ audio{
 
     pointer-events:none;
 
-    transition:opacity 1s ease;
+    transition:
+        opacity 1s ease;
 }
 
 #secretTransition.active{
@@ -761,7 +1196,12 @@ audio{
 .secret-line{
     font-family:"Cormorant Garamond",serif;
 
-    font-size:clamp(28px,6vw,55px);
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            55px
+        );
 
     opacity:0;
 
@@ -774,6 +1214,7 @@ audio{
 
 .secret-line.show{
     opacity:1;
+
     transform:translateY(0);
 }
 
@@ -814,6 +1255,7 @@ audio{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     flex-direction:column;
@@ -824,7 +1266,8 @@ audio{
 
     pointer-events:none;
 
-    transition:opacity 1s ease;
+    transition:
+        opacity 1s ease;
 
     padding:25px;
 }
@@ -848,14 +1291,18 @@ audio{
 
     transform:scale(.9);
 
-    filter:brightness(.5) blur(8px);
+    filter:
+        brightness(.5)
+        blur(8px);
 
     transition:
         opacity 1.5s ease,
         transform 2s ease,
         filter 2s ease;
 
-    box-shadow:0 30px 100px rgba(0,0,0,.9);
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.9);
 }
 
 .secret-photo.show{
@@ -863,7 +1310,9 @@ audio{
 
     transform:scale(1);
 
-    filter:brightness(1) blur(0);
+    filter:
+        brightness(1)
+        blur(0);
 }
 
 .secret-reveal-text{
@@ -873,7 +1322,12 @@ audio{
 
     font-family:"Cormorant Garamond",serif;
 
-    font-size:clamp(20px,4vw,30px);
+    font-size:
+        clamp(
+            20px,
+            4vw,
+            30px
+        );
 
     line-height:1.6;
 
@@ -890,6 +1344,7 @@ audio{
 
 .secret-reveal-text.show{
     opacity:1;
+
     transform:translateY(0);
 }
 
@@ -916,11 +1371,15 @@ audio{
 .continue-btn{
     margin-top:28px;
 
-    padding:14px 28px;
+    padding:
+        14px
+        28px;
 
     border-radius:50px;
 
-    border:1px solid rgba(255,255,255,.3);
+    border:
+        1px solid
+        rgba(255,255,255,.3);
 
     background:transparent;
 
@@ -961,7 +1420,11 @@ audio{
 
     margin:55px auto 0;
 
-    animation:memoryReveal 1.5s ease forwards;
+    animation:
+        memoryReveal
+        1.5s
+        ease
+        forwards;
 }
 
 #unlockedMemory.show{
@@ -1006,7 +1469,8 @@ audio{
     border-radius:20px;
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.7);
+        0 30px 80px
+        rgba(0,0,0,.7);
 }
 
 .unlocked-text{
@@ -1035,7 +1499,9 @@ audio{
 }
 
 .timeline-item{
-    border-left:1px solid rgba(255,255,255,.15);
+    border-left:
+        1px solid
+        rgba(255,255,255,.15);
 
     padding:
         0
@@ -1116,7 +1582,12 @@ audio{
 .final h2{
     font-family:"Great Vibes",cursive;
 
-    font-size:clamp(60px,12vw,110px);
+    font-size:
+        clamp(
+            60px,
+            12vw,
+            110px
+        );
 
     font-weight:400;
 }
@@ -1129,7 +1600,8 @@ audio{
     line-height:2;
 
     margin:
-        20px auto
+        20px
+        auto
         35px;
 
     font-family:"Cormorant Garamond",serif;
@@ -1138,13 +1610,17 @@ audio{
 }
 
 .replay-btn{
-    border:1px solid rgba(255,255,255,.2);
+    border:
+        1px solid
+        rgba(255,255,255,.2);
 
     background:transparent;
 
     color:white;
 
-    padding:14px 25px;
+    padding:
+        14px
+        25px;
 
     border-radius:50px;
 
@@ -1183,7 +1659,8 @@ footer{
 
     z-index:5000;
 
-    background:rgba(0,0,0,.92);
+    background:
+        rgba(0,0,0,.92);
 
     display:none;
 
@@ -1280,6 +1757,14 @@ footer{
         max-height:550px;
     }
 
+    .handwriting{
+        width:88vw;
+    }
+
+    .handIntro-text{
+        font-size:34px;
+    }
+
 }
 
 </style>
@@ -1290,7 +1775,81 @@ footer{
 
 
 <!-- =====================================================
-     CINEMATIC INTRO
+     PASSWORD SCREEN
+===================================================== -->
+
+<div id="passwordScreen">
+
+    <div class="password-card">
+
+        <div class="password-lock">
+            ♡
+        </div>
+
+        <div class="password-small">
+            A little secret...
+        </div>
+
+        <h1>
+            Only for someone special
+        </h1>
+
+        <p class="password-hint">
+            The most important day of your life ♡
+        </p>
+
+        <form id="passwordForm">
+
+            <input
+                id="passwordInput"
+                type="password"
+                inputmode="numeric"
+                maxlength="6"
+                autocomplete="off"
+                placeholder="Enter the password"
+                aria-label="Password"
+            >
+
+            <button type="submit">
+                Unlock ♡
+            </button>
+
+        </form>
+
+        <div id="passwordError">
+            Not quite... try again ♡
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HANDWRITING INTRO
+===================================================== -->
+
+<div id="handIntro">
+
+    <div class="handIntro-content">
+
+        <img
+            src="red_handwriting_only.png"
+            class="handwriting"
+            alt=""
+        >
+
+        <div class="handIntro-text">
+            with the little beautiful hands
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ORIGINAL CINEMATIC INTRO
 ===================================================== -->
 
 <div id="intro">
@@ -1352,7 +1911,6 @@ footer{
 </div>
 
 
-
 <!-- =====================================================
      MAIN WEBSITE
 ===================================================== -->
@@ -1389,9 +1947,6 @@ footer{
 </header>
 
 
-
-<!-- HERO -->
-
 <section
     class="hero"
     id="home"
@@ -1423,9 +1978,6 @@ footer{
 
 </section>
 
-
-
-<!-- STORY -->
 
 <section id="story">
 
@@ -1465,9 +2017,6 @@ footer{
 </section>
 
 
-
-<!-- SONG -->
-
 <section class="song">
 
     <div class="section-label">
@@ -1497,11 +2046,6 @@ footer{
 
 </section>
 
-
-
-<!-- =====================================================
-     MEMORIES
-===================================================== -->
 
 <section id="memories">
 
@@ -1610,11 +2154,6 @@ footer{
 </section>
 
 
-
-<!-- =====================================================
-     PUZZLE
-===================================================== -->
-
 <section id="puzzleSection">
 
     <div class="puzzle-section">
@@ -1700,7 +2239,6 @@ footer{
             </div>
 
 
-            <!-- old unlocked memory remains below -->
             <div id="unlockedMemory">
 
                 <div class="unlocked-title">
@@ -1734,11 +2272,6 @@ footer{
 
 </section>
 
-
-
-<!-- =====================================================
-     TIMELINE
-===================================================== -->
 
 <section>
 
@@ -1815,11 +2348,6 @@ footer{
 </section>
 
 
-
-<!-- =====================================================
-     FINAL
-===================================================== -->
-
 <section class="final">
 
 
@@ -1867,7 +2395,6 @@ footer{
 </div>
 
 
-
 <!-- =====================================================
      SECRET TRANSITION
 ===================================================== -->
@@ -1913,7 +2440,6 @@ footer{
 </div>
 
 
-
 <!-- =====================================================
      SECRET REVEAL
 ===================================================== -->
@@ -1955,12 +2481,11 @@ footer{
         class="continue-btn"
         id="continueBtn"
     >
-        Continue → 
+        Continue →
     </button>
 
 
 </div>
-
 
 
 <!-- =====================================================
@@ -1982,11 +2507,137 @@ footer{
 </div>
 
 
-
 <script>
 
 /* =====================================================
-   INTRO
+   PASSWORD
+===================================================== */
+
+const passwordScreen =
+    document.getElementById(
+        "passwordScreen"
+    );
+
+const passwordForm =
+    document.getElementById(
+        "passwordForm"
+    );
+
+const passwordInput =
+    document.getElementById(
+        "passwordInput"
+    );
+
+const passwordError =
+    document.getElementById(
+        "passwordError"
+    );
+
+
+const CORRECT_PASSWORD =
+    "842005";
+
+
+passwordForm.addEventListener(
+    "submit",
+    event=>{
+
+        event.preventDefault();
+
+
+        if(
+            passwordInput.value ===
+            CORRECT_PASSWORD
+        ){
+
+            passwordError.classList.remove(
+                "show"
+            );
+
+
+            passwordScreen.classList.add(
+                "hide"
+            );
+
+
+            setTimeout(()=>{
+
+                passwordScreen.style.display =
+                    "none";
+
+
+                startHandIntro();
+
+            },1400);
+
+
+        }
+
+        else{
+
+            passwordError.textContent =
+                "Not quite... try again ♡";
+
+
+            passwordError.classList.add(
+                "show"
+            );
+
+
+            passwordInput.classList.remove(
+                "password-wrong"
+            );
+
+
+            void passwordInput.offsetWidth;
+
+
+            passwordInput.classList.add(
+                "password-wrong"
+            );
+
+
+            passwordInput.value="";
+
+
+            passwordInput.focus();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   HANDWRITING INTRO
+===================================================== */
+
+const handIntro =
+    document.getElementById(
+        "handIntro"
+    );
+
+
+function startHandIntro(){
+
+    handIntro.classList.remove(
+        "hide"
+    );
+
+
+    setTimeout(()=>{
+
+        handIntro.classList.add(
+            "hide"
+        );
+
+    },3200);
+
+}
+
+
+/* =====================================================
+   ORIGINAL INTRO
 ===================================================== */
 
 const intro =
@@ -2019,18 +2670,26 @@ function startIntro(){
 
     introText.style.opacity="1";
 
+
     oldPhoto.classList.remove(
         "show",
         "leave"
     );
 
-    loveScreen.classList.remove("show");
 
-    newPhoto.classList.remove("show");
+    loveScreen.classList.remove(
+        "show"
+    );
+
+
+    newPhoto.classList.remove(
+        "show"
+    );
+
 
     introNext.style.opacity="0";
 
-    introNext.style.transform=
+    introNext.style.transform =
         "translateY(15px)";
 
 
@@ -2043,35 +2702,45 @@ function startIntro(){
 
     setTimeout(()=>{
 
-        oldPhoto.classList.add("show");
+        oldPhoto.classList.add(
+            "show"
+        );
 
     },3200);
 
 
     setTimeout(()=>{
 
-        oldPhoto.classList.add("leave");
+        oldPhoto.classList.add(
+            "leave"
+        );
 
     },4900);
 
 
     setTimeout(()=>{
 
-        loveScreen.classList.add("show");
+        loveScreen.classList.add(
+            "show"
+        );
 
     },5400);
 
 
     setTimeout(()=>{
 
-        loveScreen.classList.remove("show");
+        loveScreen.classList.remove(
+            "show"
+        );
 
     },6900);
 
 
     setTimeout(()=>{
 
-        newPhoto.classList.add("show");
+        newPhoto.classList.add(
+            "show"
+        );
 
     },7100);
 
@@ -2080,7 +2749,7 @@ function startIntro(){
 
         introNext.style.opacity="1";
 
-        introNext.style.transform=
+        introNext.style.transform =
             "translateY(0)";
 
     },8200);
@@ -2092,7 +2761,9 @@ introNext.addEventListener(
     "click",
     ()=>{
 
-        newPhoto.classList.remove("show");
+        newPhoto.classList.remove(
+            "show"
+        );
 
         intro.style.opacity="0";
 
@@ -2101,7 +2772,10 @@ introNext.addEventListener(
 
             intro.style.display="none";
 
-            site.classList.add("visible");
+            site.classList.add(
+                "visible"
+            );
+
 
             window.scrollTo({
                 top:0,
@@ -2114,7 +2788,6 @@ introNext.addEventListener(
 );
 
 
-
 /* =====================================================
    PUZZLE
 ===================================================== */
@@ -2123,22 +2796,34 @@ const puzzle =
     document.getElementById("puzzle");
 
 const shuffleBtn =
-    document.getElementById("shuffleBtn");
+    document.getElementById(
+        "shuffleBtn"
+    );
 
 const resetBtn =
-    document.getElementById("resetBtn");
+    document.getElementById(
+        "resetBtn"
+    );
 
 const puzzleStatus =
-    document.getElementById("puzzleStatus");
+    document.getElementById(
+        "puzzleStatus"
+    );
 
 const lockIcon =
-    document.getElementById("lockIcon");
+    document.getElementById(
+        "lockIcon"
+    );
 
 const puzzleTitle =
-    document.getElementById("puzzleTitle");
+    document.getElementById(
+        "puzzleTitle"
+    );
 
 const puzzleHint =
-    document.getElementById("puzzleHint");
+    document.getElementById(
+        "puzzleHint"
+    );
 
 
 const secretTransition =
@@ -2199,20 +2884,11 @@ let selectedIndex=null;
 let puzzleUnlocked=false;
 
 
-/*
-    Correct order:
-
-    0 1 2
-    3 4 5
-    6 7 8
-*/
-
 const solvedOrder=[
     0,1,2,
     3,4,5,
     6,7,8
 ];
-
 
 
 function createPuzzle(){
@@ -2228,7 +2904,6 @@ function createPuzzle(){
 }
 
 
-
 function shufflePieces(){
 
     do{
@@ -2239,9 +2914,10 @@ function shufflePieces(){
             i--
         ){
 
-            const random=
+            const random =
                 Math.floor(
-                    Math.random()*(i+1)
+                    Math.random()*
+                    (i+1)
                 );
 
 
@@ -2256,10 +2932,12 @@ function shufflePieces(){
         }
 
     }
-    while(isSolved());
+
+    while(
+        isSolved()
+    );
 
 }
-
 
 
 function renderPuzzle(){
@@ -2268,40 +2946,41 @@ function renderPuzzle(){
 
 
     pieces.forEach(
-        (pieceNumber,position)=>{
+        (
+            pieceNumber,
+            position
+        )=>{
 
-            const piece=
-                document.createElement("div");
+            const piece =
+                document.createElement(
+                    "div"
+                );
 
 
-            piece.className=
+            piece.className =
                 "puzzle-piece";
 
 
-            const row=
+            const row =
                 Math.floor(
                     pieceNumber/3
                 );
 
 
-            const col=
+            const col =
                 pieceNumber%3;
 
 
-            piece.style.backgroundPosition=
+            piece.style.backgroundPosition =
                 `${col*50}% ${row*50}%`;
 
 
-            piece.dataset.position=
+            piece.dataset.position =
                 position;
 
 
             piece.draggable=true;
 
-
-            /*
-                Desktop dragging
-            */
 
             piece.addEventListener(
                 "dragstart",
@@ -2338,7 +3017,7 @@ function renderPuzzle(){
                     event.preventDefault();
 
 
-                    const dragged=
+                    const dragged =
                         document.querySelector(
                             ".dragging"
                         );
@@ -2349,13 +3028,14 @@ function renderPuzzle(){
                     }
 
 
-                    const from=
+                    const from =
                         Number(
                             dragged.dataset.position
                         );
 
 
-                    const to=position;
+                    const to =
+                        position;
 
 
                     if(
@@ -2374,10 +3054,6 @@ function renderPuzzle(){
             );
 
 
-            /*
-                Mobile tap
-            */
-
             piece.addEventListener(
                 "click",
                 ()=>{
@@ -2389,7 +3065,9 @@ function renderPuzzle(){
             );
 
 
-            puzzle.appendChild(piece);
+            puzzle.appendChild(
+                piece
+            );
 
         }
     );
@@ -2397,27 +3075,34 @@ function renderPuzzle(){
 }
 
 
-
 function handlePieceClick(
     position,
     element
 ){
 
-    if(puzzleUnlocked){
+    if(
+        puzzleUnlocked
+    ){
         return;
     }
 
 
-    if(selectedIndex===null){
+    if(
+        selectedIndex===null
+    ){
 
-        selectedIndex=position;
+        selectedIndex =
+            position;
+
 
         element.classList.add(
             "selected"
         );
 
-        puzzleStatus.textContent=
+
+        puzzleStatus.textContent =
             "Now choose another piece.";
+
 
         return;
 
@@ -2432,10 +3117,13 @@ function handlePieceClick(
             "selected"
         );
 
+
         selectedIndex=null;
 
-        puzzleStatus.textContent=
+
+        puzzleStatus.textContent =
             "Choose a piece.";
+
 
         return;
 
@@ -2451,7 +3139,6 @@ function handlePieceClick(
     selectedIndex=null;
 
 }
-
 
 
 function swapPieces(a,b){
@@ -2473,11 +3160,13 @@ function swapPieces(a,b){
 }
 
 
-
 function isSolved(){
 
     return pieces.every(
-        (piece,index)=>
+        (
+            piece,
+            index
+        )=>
             piece===
             solvedOrder[index]
     );
@@ -2485,10 +3174,11 @@ function isSolved(){
 }
 
 
-
 function checkPuzzle(){
 
-    if(isSolved()){
+    if(
+        isSolved()
+    ){
 
         unlockPuzzle();
 
@@ -2497,19 +3187,21 @@ function checkPuzzle(){
     }
 
 
-    const correct=
+    const correct =
         pieces.filter(
-            (piece,index)=>
+            (
+                piece,
+                index
+            )=>
                 piece===
                 solvedOrder[index]
         ).length;
 
 
-    puzzleStatus.textContent=
+    puzzleStatus.textContent =
         `${correct} / 9 pieces are in the right place ♡`;
 
 }
-
 
 
 /* =====================================================
@@ -2518,23 +3210,21 @@ function checkPuzzle(){
 
 function unlockPuzzle(){
 
-    if(puzzleUnlocked){
+    if(
+        puzzleUnlocked
+    ){
         return;
     }
+
 
     puzzleUnlocked=true;
 
 
-    puzzleStatus.textContent=
+    puzzleStatus.textContent =
         "You did it... ♡";
 
 
-    /*
-        Make the completed image
-        visible for a moment.
-    */
-
-    const puzzlePieces=
+    const puzzlePieces =
         document.querySelectorAll(
             ".puzzle-piece"
         );
@@ -2549,10 +3239,6 @@ function unlockPuzzle(){
     );
 
 
-    /*
-        Wait, then start cinematic transition.
-    */
-
     setTimeout(()=>{
 
         startSecretSequence();
@@ -2562,26 +3248,18 @@ function unlockPuzzle(){
 }
 
 
-
 /* =====================================================
    SECRET CINEMATIC SEQUENCE
 ===================================================== */
 
 function startSecretSequence(){
 
-    /*
-        Fade puzzle away.
-    */
-
-    puzzle.style.transform=
+    puzzle.style.transform =
         "scale(1.08)";
 
-    puzzle.style.opacity="0";
+    puzzle.style.opacity =
+        "0";
 
-
-    /*
-        Black screen.
-    */
 
     setTimeout(()=>{
 
@@ -2592,10 +3270,6 @@ function startSecretSequence(){
     },500);
 
 
-    /*
-        "Puzzle complete"
-    */
-
     setTimeout(()=>{
 
         secretSmall.classList.add(
@@ -2605,10 +3279,6 @@ function startSecretSequence(){
     },1000);
 
 
-    /*
-        You found it...
-    */
-
     setTimeout(()=>{
 
         secretLine1.classList.add(
@@ -2617,10 +3287,6 @@ function startSecretSequence(){
 
     },1900);
 
-
-    /*
-        But that's not the surprise.
-    */
 
     setTimeout(()=>{
 
@@ -2640,10 +3306,6 @@ function startSecretSequence(){
     },3900);
 
 
-    /*
-        Last line.
-    */
-
     setTimeout(()=>{
 
         secretLine2.classList.remove(
@@ -2662,19 +3324,17 @@ function startSecretSequence(){
     },5800);
 
 
-    /*
-        Move to actual reveal.
-    */
-
     setTimeout(()=>{
 
         secretTransition.classList.remove(
             "active"
         );
 
+
         secretLine3.classList.remove(
             "show"
         );
+
 
         secretSmall.classList.remove(
             "show"
@@ -2686,10 +3346,6 @@ function startSecretSequence(){
         );
 
 
-        /*
-            Image appears.
-        */
-
         setTimeout(()=>{
 
             secretPhoto.classList.add(
@@ -2698,10 +3354,6 @@ function startSecretSequence(){
 
         },500);
 
-
-        /*
-            Text.
-        */
 
         setTimeout(()=>{
 
@@ -2712,10 +3364,6 @@ function startSecretSequence(){
         },1800);
 
 
-        /*
-            Badge.
-        */
-
         setTimeout(()=>{
 
             secretBadge.classList.add(
@@ -2724,10 +3372,6 @@ function startSecretSequence(){
 
         },2900);
 
-
-        /*
-            Continue.
-        */
 
         setTimeout(()=>{
 
@@ -2743,7 +3387,6 @@ function startSecretSequence(){
 }
 
 
-
 /* =====================================================
    CONTINUE AFTER SECRET
 ===================================================== */
@@ -2752,33 +3395,21 @@ continueBtn.addEventListener(
     "click",
     ()=>{
 
-        /*
-            Close cinematic reveal.
-        */
-
         secretReveal.classList.remove(
             "active"
         );
 
 
-        /*
-            Reset puzzle visually.
-        */
-
         setTimeout(()=>{
 
-            puzzle.style.transform=
+            puzzle.style.transform =
                 "scale(1)";
 
-            puzzle.style.opacity="1";
+            puzzle.style.opacity =
+                "1";
 
 
-            /*
-                Show unlocked memory
-                inside Memories section.
-            */
-
-            const unlockedMemory=
+            const unlockedMemory =
                 document.getElementById(
                     "unlockedMemory"
                 );
@@ -2789,24 +3420,21 @@ continueBtn.addEventListener(
             );
 
 
-            lockIcon.textContent="🔓";
+            lockIcon.textContent =
+                "🔓";
 
 
-            puzzleTitle.textContent=
+            puzzleTitle.textContent =
                 "The memory you unlocked.";
 
 
-            puzzleHint.textContent=
+            puzzleHint.textContent =
                 "You found the one I was hiding for you. ♡";
 
 
-            puzzleStatus.textContent=
+            puzzleStatus.textContent =
                 "1 secret unlocked ♡";
 
-
-            /*
-                Scroll back to the memory.
-            */
 
             setTimeout(()=>{
 
@@ -2824,7 +3452,6 @@ continueBtn.addEventListener(
 );
 
 
-
 /* =====================================================
    SHUFFLE
 ===================================================== */
@@ -2833,7 +3460,9 @@ shuffleBtn.addEventListener(
     "click",
     ()=>{
 
-        if(puzzleUnlocked){
+        if(
+            puzzleUnlocked
+        ){
             return;
         }
 
@@ -2852,12 +3481,11 @@ shuffleBtn.addEventListener(
         selectedIndex=null;
 
 
-        puzzleStatus.textContent=
+        puzzleStatus.textContent =
             "Okay... try again. ♡";
 
     }
 );
-
 
 
 /* =====================================================
@@ -2868,7 +3496,9 @@ resetBtn.addEventListener(
     "click",
     ()=>{
 
-        if(puzzleUnlocked){
+        if(
+            puzzleUnlocked
+        ){
             return;
         }
 
@@ -2884,12 +3514,11 @@ resetBtn.addEventListener(
         selectedIndex=null;
 
 
-        puzzleStatus.textContent=
+        puzzleStatus.textContent =
             "Tap two pieces to swap them.";
 
     }
 );
-
 
 
 /* =====================================================
@@ -2910,7 +3539,8 @@ document
 
         setTimeout(()=>{
 
-            intro.style.display="flex";
+            intro.style.display =
+                "flex";
 
             startIntro();
 
@@ -2920,29 +3550,30 @@ document
 );
 
 
-
 /* =====================================================
    LIGHTBOX
 ===================================================== */
 
-const lightbox=
+const lightbox =
     document.getElementById(
         "lightbox"
     );
 
-const lightboxImage=
+const lightboxImage =
     document.getElementById(
         "lightboxImage"
     );
 
-const closeLightbox=
+const closeLightbox =
     document.querySelector(
         ".close-lightbox"
     );
 
 
 document
-.querySelectorAll(".memory img")
+.querySelectorAll(
+    ".memory img"
+)
 .forEach(
     img=>{
 
@@ -2950,8 +3581,9 @@ document
             "click",
             ()=>{
 
-                lightboxImage.src=
+                lightboxImage.src =
                     img.src;
+
 
                 lightbox.classList.add(
                     "show"
@@ -2967,9 +3599,11 @@ document
 closeLightbox.addEventListener(
     "click",
     ()=>{
+
         lightbox.classList.remove(
             "show"
         );
+
     }
 );
 
@@ -2993,7 +3627,6 @@ lightbox.addEventListener(
 );
 
 
-
 /* =====================================================
    INITIALIZE
 ===================================================== */
@@ -3004,7 +3637,9 @@ createPuzzle();
 window.addEventListener(
     "load",
     ()=>{
-        startIntro();
+
+        passwordInput.focus();
+
     }
 );
 
