@@ -60,7 +60,6 @@ body::before{
 #passwordScreen{
     position:fixed;
     inset:0;
-
     z-index:11000;
 
     background:
@@ -72,16 +71,13 @@ body::before{
         #020204;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     text-align:center;
-
     padding:25px;
 
     opacity:1;
-
     transition:opacity 1.4s ease;
 }
 
@@ -95,7 +91,6 @@ body::before{
 
     display:flex;
     flex-direction:column;
-
     align-items:center;
 }
 
@@ -108,13 +103,10 @@ body::before{
     justify-content:center;
 
     border:1px solid rgba(232,167,201,.35);
-
     border-radius:50%;
 
     color:#e8a7c9;
-
     font-family:"Cormorant Garamond",serif;
-
     font-size:28px;
 
     margin-bottom:25px;
@@ -125,35 +117,27 @@ body::before{
 
 .password-small{
     text-transform:uppercase;
-
     letter-spacing:5px;
-
     font-size:10px;
-
     color:#777;
-
     margin-bottom:16px;
 }
 
 .password-card h1{
     font-family:"Great Vibes",cursive;
-
     font-weight:400;
 
     font-size:clamp(45px,9vw,75px);
 
     line-height:1;
-
     margin-bottom:18px;
 }
 
 .password-hint{
     font-family:"Cormorant Garamond",serif;
-
     color:#c9aabb;
 
     font-size:21px;
-
     letter-spacing:1px;
 
     margin-bottom:30px;
@@ -163,9 +147,7 @@ body::before{
     width:min(88vw,360px);
 
     display:flex;
-
     flex-direction:column;
-
     gap:12px;
 }
 
@@ -204,7 +186,6 @@ body::before{
 
 #passwordInput::placeholder{
     letter-spacing:1px;
-
     color:#666;
 }
 
@@ -228,7 +209,6 @@ body::before{
 
 #passwordForm button:hover{
     background:white;
-
     color:#050509;
 }
 
@@ -251,8 +231,7 @@ body::before{
 }
 
 .password-wrong{
-    animation:
-        passwordShake .35s ease;
+    animation:passwordShake .35s ease;
 }
 
 @keyframes passwordShake{
@@ -278,7 +257,6 @@ body::before{
 
 #handIntro{
     position:fixed;
-
     inset:0;
 
     z-index:10000;
@@ -286,7 +264,6 @@ body::before{
     background:#020204;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -294,15 +271,13 @@ body::before{
 
     opacity:1;
 
-    transition:
-        opacity 1.4s ease;
+    transition:opacity 1.4s ease;
 
     overflow:hidden;
 }
 
 #handIntro.hide{
     opacity:0;
-
     pointer-events:none;
 }
 
@@ -310,11 +285,9 @@ body::before{
     width:min(88vw,700px);
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 }
 
@@ -360,8 +333,7 @@ body::before{
 
     opacity:0;
 
-    transform:
-        translateY(15px);
+    transform:translateY(15px);
 
     animation:
         handTextAppear
@@ -387,9 +359,7 @@ body::before{
 
     to{
         opacity:1;
-
-        transform:
-            translateY(0);
+        transform:translateY(0);
     }
 
 }
@@ -401,7 +371,6 @@ body::before{
 
 #intro{
     position:fixed;
-
     inset:0;
 
     z-index:9999;
@@ -411,13 +380,11 @@ body::before{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     overflow:hidden;
 
-    transition:
-        opacity 1s ease;
+    transition:opacity 1s ease;
 }
 
 .intro-text{
@@ -506,7 +473,6 @@ body::before{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
@@ -521,8 +487,7 @@ body::before{
         ),
         #020204;
 
-    transition:
-        opacity .8s ease;
+    transition:opacity .8s ease;
 }
 
 .love-screen.show{
@@ -633,7 +598,6 @@ body::before{
 
 .intro-next:hover{
     background:white;
-
     color:black;
 }
 
@@ -645,8 +609,7 @@ body::before{
 #site{
     opacity:0;
 
-    transition:
-        opacity 1.5s ease;
+    transition:opacity 1.5s ease;
 }
 
 #site.visible{
@@ -682,7 +645,6 @@ header{
 
 .logo{
     font-family:"Cormorant Garamond",serif;
-
     font-size:20px;
 }
 
@@ -692,13 +654,11 @@ header{
 
 nav{
     display:flex;
-
     gap:25px;
 }
 
 nav a{
     color:#aaa;
-
     text-decoration:none;
 
     font-size:12px;
@@ -718,15 +678,11 @@ nav a:hover{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
 
-    padding:
-        100px
-        20px
-        60px;
+    padding:100px 20px 60px;
 }
 
 .hero-content{
@@ -796,7 +752,6 @@ nav a:hover{
 
 .hero-btn:hover{
     background:white;
-
     color:#050509;
 }
 
@@ -889,7 +844,6 @@ audio{
 
 .memories{
     max-width:1200px;
-
     margin:auto;
 }
 
@@ -920,7 +874,6 @@ audio{
 
 .memory img{
     width:100%;
-
     height:100%;
 
     object-fit:cover;
@@ -941,9 +894,7 @@ audio{
     bottom:0;
 
     padding:
-        40px
-        20px
-        20px;
+        40px 20px 20px;
 
     background:
         linear-gradient(
@@ -1073,7 +1024,6 @@ audio{
     border-radius:3px;
 
     min-width:0;
-
     min-height:0;
 
     transition:
@@ -1125,8 +1075,7 @@ audio{
     color:white;
 
     padding:
-        13px
-        23px;
+        13px 23px;
 
     border-radius:50px;
 
@@ -1137,7 +1086,6 @@ audio{
 
 .puzzle-btn:hover{
     background:white;
-
     color:black;
 }
 
@@ -1168,7 +1116,6 @@ audio{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
@@ -1177,8 +1124,7 @@ audio{
 
     pointer-events:none;
 
-    transition:
-        opacity 1s ease;
+    transition:opacity 1s ease;
 }
 
 #secretTransition.active{
@@ -1214,7 +1160,6 @@ audio{
 
 .secret-line.show{
     opacity:1;
-
     transform:translateY(0);
 }
 
@@ -1266,8 +1211,7 @@ audio{
 
     pointer-events:none;
 
-    transition:
-        opacity 1s ease;
+    transition:opacity 1s ease;
 
     padding:25px;
 }
@@ -1344,7 +1288,6 @@ audio{
 
 .secret-reveal-text.show{
     opacity:1;
-
     transform:translateY(0);
 }
 
@@ -1372,8 +1315,7 @@ audio{
     margin-top:28px;
 
     padding:
-        14px
-        28px;
+        14px 28px;
 
     border-radius:50px;
 
@@ -1406,7 +1348,6 @@ audio{
 
 .continue-btn:hover{
     background:white;
-
     color:#000;
 }
 
@@ -1600,8 +1541,7 @@ audio{
     line-height:2;
 
     margin:
-        20px
-        auto
+        20px auto
         35px;
 
     font-family:"Cormorant Garamond",serif;
@@ -1619,8 +1559,7 @@ audio{
     color:white;
 
     padding:
-        14px
-        25px;
+        14px 25px;
 
     border-radius:50px;
 
@@ -1631,7 +1570,6 @@ audio{
 
 .replay-btn:hover{
     background:white;
-
     color:black;
 }
 
@@ -1947,6 +1885,8 @@ footer{
 </header>
 
 
+<!-- HERO -->
+
 <section
     class="hero"
     id="home"
@@ -1978,6 +1918,8 @@ footer{
 
 </section>
 
+
+<!-- STORY -->
 
 <section id="story">
 
@@ -2017,6 +1959,8 @@ footer{
 </section>
 
 
+<!-- SONG -->
+
 <section class="song">
 
     <div class="section-label">
@@ -2046,6 +1990,8 @@ footer{
 
 </section>
 
+
+<!-- MEMORIES -->
 
 <section id="memories">
 
@@ -2153,6 +2099,8 @@ footer{
 
 </section>
 
+
+<!-- PUZZLE -->
 
 <section id="puzzleSection">
 
@@ -2273,6 +2221,8 @@ footer{
 </section>
 
 
+<!-- TIMELINE -->
+
 <section>
 
     <div class="timeline">
@@ -2347,6 +2297,8 @@ footer{
 
 </section>
 
+
+<!-- FINAL -->
 
 <section class="final">
 
@@ -2514,24 +2466,16 @@ footer{
 ===================================================== */
 
 const passwordScreen =
-    document.getElementById(
-        "passwordScreen"
-    );
+    document.getElementById("passwordScreen");
 
 const passwordForm =
-    document.getElementById(
-        "passwordForm"
-    );
+    document.getElementById("passwordForm");
 
 const passwordInput =
-    document.getElementById(
-        "passwordInput"
-    );
+    document.getElementById("passwordInput");
 
 const passwordError =
-    document.getElementById(
-        "passwordError"
-    );
+    document.getElementById("passwordError");
 
 
 const CORRECT_PASSWORD =
@@ -2540,10 +2484,9 @@ const CORRECT_PASSWORD =
 
 passwordForm.addEventListener(
     "submit",
-    event=>{
+    event => {
 
         event.preventDefault();
-
 
         if(
             passwordInput.value ===
@@ -2554,22 +2497,21 @@ passwordForm.addEventListener(
                 "show"
             );
 
-
             passwordScreen.classList.add(
                 "hide"
             );
 
+            setTimeout(
+                () => {
 
-            setTimeout(()=>{
+                    passwordScreen.style.display =
+                        "none";
 
-                passwordScreen.style.display =
-                    "none";
+                    startHandIntro();
 
-
-                startHandIntro();
-
-            },1400);
-
+                },
+                1400
+            );
 
         }
 
@@ -2578,27 +2520,21 @@ passwordForm.addEventListener(
             passwordError.textContent =
                 "Not quite... try again ♡";
 
-
             passwordError.classList.add(
                 "show"
             );
-
 
             passwordInput.classList.remove(
                 "password-wrong"
             );
 
-
             void passwordInput.offsetWidth;
-
 
             passwordInput.classList.add(
                 "password-wrong"
             );
 
-
-            passwordInput.value="";
-
+            passwordInput.value = "";
 
             passwordInput.focus();
 
@@ -2613,25 +2549,44 @@ passwordForm.addEventListener(
 ===================================================== */
 
 const handIntro =
-    document.getElementById(
-        "handIntro"
-    );
+    document.getElementById("handIntro");
 
 
 function startHandIntro(){
+
+    handIntro.style.display = "flex";
 
     handIntro.classList.remove(
         "hide"
     );
 
+    setTimeout(
+        () => {
 
-    setTimeout(()=>{
+            handIntro.classList.add(
+                "hide"
+            );
 
-        handIntro.classList.add(
-            "hide"
-        );
+            /*
+             * Start the original intro AFTER
+             * the handwriting screen begins fading.
+             */
 
-    },3200);
+            setTimeout(
+                () => {
+
+                    handIntro.style.display =
+                        "none";
+
+                    startIntro();
+
+                },
+                900
+            );
+
+        },
+        3200
+    );
 
 }
 
@@ -2664,11 +2619,11 @@ const site =
 
 function startIntro(){
 
-    intro.style.display="flex";
+    intro.style.display = "flex";
 
-    intro.style.opacity="1";
+    intro.style.opacity = "1";
 
-    introText.style.opacity="1";
+    introText.style.opacity = "1";
 
 
     oldPhoto.classList.remove(
@@ -2676,113 +2631,137 @@ function startIntro(){
         "leave"
     );
 
-
     loveScreen.classList.remove(
         "show"
     );
-
 
     newPhoto.classList.remove(
         "show"
     );
 
 
-    introNext.style.opacity="0";
+    introNext.style.opacity = "0";
 
     introNext.style.transform =
         "translateY(15px)";
 
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        introText.style.opacity="0";
+            introText.style.opacity =
+                "0";
 
-    },3000);
-
-
-    setTimeout(()=>{
-
-        oldPhoto.classList.add(
-            "show"
-        );
-
-    },3200);
+        },
+        3000
+    );
 
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        oldPhoto.classList.add(
-            "leave"
-        );
+            oldPhoto.classList.add(
+                "show"
+            );
 
-    },4900);
-
-
-    setTimeout(()=>{
-
-        loveScreen.classList.add(
-            "show"
-        );
-
-    },5400);
+        },
+        3200
+    );
 
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        loveScreen.classList.remove(
-            "show"
-        );
+            oldPhoto.classList.add(
+                "leave"
+            );
 
-    },6900);
-
-
-    setTimeout(()=>{
-
-        newPhoto.classList.add(
-            "show"
-        );
-
-    },7100);
+        },
+        4900
+    );
 
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        introNext.style.opacity="1";
+            loveScreen.classList.add(
+                "show"
+            );
 
-        introNext.style.transform =
-            "translateY(0)";
+        },
+        5400
+    );
 
-    },8200);
+
+    setTimeout(
+        () => {
+
+            loveScreen.classList.remove(
+                "show"
+            );
+
+        },
+        6900
+    );
+
+
+    setTimeout(
+        () => {
+
+            newPhoto.classList.add(
+                "show"
+            );
+
+        },
+        7100
+    );
+
+
+    setTimeout(
+        () => {
+
+            introNext.style.opacity =
+                "1";
+
+            introNext.style.transform =
+                "translateY(0)";
+
+        },
+        8200
+    );
 
 }
 
 
 introNext.addEventListener(
     "click",
-    ()=>{
+    () => {
 
         newPhoto.classList.remove(
             "show"
         );
 
-        intro.style.opacity="0";
+        intro.style.opacity = "0";
 
 
-        setTimeout(()=>{
+        setTimeout(
+            () => {
 
-            intro.style.display="none";
+                intro.style.display =
+                    "none";
 
-            site.classList.add(
-                "visible"
-            );
+                site.classList.add(
+                    "visible"
+                );
 
+                window.scrollTo({
+                    top:0,
+                    behavior:"instant"
+                });
 
-            window.scrollTo({
-                top:0,
-                behavior:"instant"
-            });
-
-        },1000);
+            },
+            1000
+        );
 
     }
 );
@@ -2796,95 +2775,63 @@ const puzzle =
     document.getElementById("puzzle");
 
 const shuffleBtn =
-    document.getElementById(
-        "shuffleBtn"
-    );
+    document.getElementById("shuffleBtn");
 
 const resetBtn =
-    document.getElementById(
-        "resetBtn"
-    );
+    document.getElementById("resetBtn");
 
 const puzzleStatus =
-    document.getElementById(
-        "puzzleStatus"
-    );
+    document.getElementById("puzzleStatus");
 
 const lockIcon =
-    document.getElementById(
-        "lockIcon"
-    );
+    document.getElementById("lockIcon");
 
 const puzzleTitle =
-    document.getElementById(
-        "puzzleTitle"
-    );
+    document.getElementById("puzzleTitle");
 
 const puzzleHint =
-    document.getElementById(
-        "puzzleHint"
-    );
+    document.getElementById("puzzleHint");
 
 
 const secretTransition =
-    document.getElementById(
-        "secretTransition"
-    );
+    document.getElementById("secretTransition");
 
 const secretReveal =
-    document.getElementById(
-        "secretReveal"
-    );
+    document.getElementById("secretReveal");
 
 const secretSmall =
-    document.getElementById(
-        "secretSmall"
-    );
+    document.getElementById("secretSmall");
 
 const secretLine1 =
-    document.getElementById(
-        "secretLine1"
-    );
+    document.getElementById("secretLine1");
 
 const secretLine2 =
-    document.getElementById(
-        "secretLine2"
-    );
+    document.getElementById("secretLine2");
 
 const secretLine3 =
-    document.getElementById(
-        "secretLine3"
-    );
+    document.getElementById("secretLine3");
 
 const secretPhoto =
-    document.getElementById(
-        "secretPhoto"
-    );
+    document.getElementById("secretPhoto");
 
 const secretRevealText =
-    document.getElementById(
-        "secretRevealText"
-    );
+    document.getElementById("secretRevealText");
 
 const secretBadge =
-    document.getElementById(
-        "secretBadge"
-    );
+    document.getElementById("secretBadge");
 
 const continueBtn =
-    document.getElementById(
-        "continueBtn"
-    );
+    document.getElementById("continueBtn");
 
 
-let pieces=[];
+let pieces = [];
 
-let selectedIndex=null;
+let selectedIndex = null;
 
-let puzzleUnlocked=false;
+let puzzleUnlocked = false;
 
 
-const solvedOrder=[
+const solvedOrder = [
     0,1,2,
     3,4,5,
     6,7,8
@@ -2893,7 +2840,7 @@ const solvedOrder=[
 
 function createPuzzle(){
 
-    pieces=[
+    pieces = [
         ...solvedOrder
     ];
 
@@ -2909,22 +2856,22 @@ function shufflePieces(){
     do{
 
         for(
-            let i=pieces.length-1;
-            i>0;
+            let i = pieces.length - 1;
+            i > 0;
             i--
         ){
 
             const random =
                 Math.floor(
-                    Math.random()*
-                    (i+1)
+                    Math.random() *
+                    (i + 1)
                 );
 
 
             [
                 pieces[i],
                 pieces[random]
-            ]=[
+            ] = [
                 pieces[random],
                 pieces[i]
             ];
@@ -2932,7 +2879,6 @@ function shufflePieces(){
         }
 
     }
-
     while(
         isSolved()
     );
@@ -2942,14 +2888,14 @@ function shufflePieces(){
 
 function renderPuzzle(){
 
-    puzzle.innerHTML="";
+    puzzle.innerHTML = "";
 
 
     pieces.forEach(
         (
             pieceNumber,
             position
-        )=>{
+        ) => {
 
             const piece =
                 document.createElement(
@@ -2963,56 +2909,62 @@ function renderPuzzle(){
 
             const row =
                 Math.floor(
-                    pieceNumber/3
+                    pieceNumber / 3
                 );
 
 
             const col =
-                pieceNumber%3;
+                pieceNumber % 3;
 
 
             piece.style.backgroundPosition =
-                `${col*50}% ${row*50}%`;
+                `${col * 50}% ${row * 50}%`;
 
 
             piece.dataset.position =
                 position;
 
 
-            piece.draggable=true;
+            piece.draggable = true;
 
 
             piece.addEventListener(
                 "dragstart",
-                ()=>{
+                () => {
+
                     piece.classList.add(
                         "dragging"
                     );
+
                 }
             );
 
 
             piece.addEventListener(
                 "dragend",
-                ()=>{
+                () => {
+
                     piece.classList.remove(
                         "dragging"
                     );
+
                 }
             );
 
 
             piece.addEventListener(
                 "dragover",
-                event=>{
+                event => {
+
                     event.preventDefault();
+
                 }
             );
 
 
             piece.addEventListener(
                 "drop",
-                event=>{
+                event => {
 
                     event.preventDefault();
 
@@ -3040,7 +2992,7 @@ function renderPuzzle(){
 
                     if(
                         Number.isInteger(from) &&
-                        from!==to
+                        from !== to
                     ){
 
                         swapPieces(
@@ -3056,11 +3008,13 @@ function renderPuzzle(){
 
             piece.addEventListener(
                 "click",
-                ()=>{
+                () => {
+
                     handlePieceClick(
                         position,
                         piece
                     );
+
                 }
             );
 
@@ -3088,21 +3042,18 @@ function handlePieceClick(
 
 
     if(
-        selectedIndex===null
+        selectedIndex === null
     ){
 
         selectedIndex =
             position;
 
-
         element.classList.add(
             "selected"
         );
 
-
         puzzleStatus.textContent =
             "Now choose another piece.";
-
 
         return;
 
@@ -3110,20 +3061,17 @@ function handlePieceClick(
 
 
     if(
-        selectedIndex===position
+        selectedIndex === position
     ){
 
         element.classList.remove(
             "selected"
         );
 
-
-        selectedIndex=null;
-
+        selectedIndex = null;
 
         puzzleStatus.textContent =
             "Choose a piece.";
-
 
         return;
 
@@ -3135,8 +3083,7 @@ function handlePieceClick(
         position
     );
 
-
-    selectedIndex=null;
+    selectedIndex = null;
 
 }
 
@@ -3146,14 +3093,13 @@ function swapPieces(a,b){
     [
         pieces[a],
         pieces[b]
-    ]=[
+    ] = [
         pieces[b],
         pieces[a]
     ];
 
 
     renderPuzzle();
-
 
     checkPuzzle();
 
@@ -3166,8 +3112,8 @@ function isSolved(){
         (
             piece,
             index
-        )=>
-            piece===
+        ) =>
+            piece ===
             solvedOrder[index]
     );
 
@@ -3192,8 +3138,8 @@ function checkPuzzle(){
             (
                 piece,
                 index
-            )=>
-                piece===
+            ) =>
+                piece ===
                 solvedOrder[index]
         ).length;
 
@@ -3217,7 +3163,7 @@ function unlockPuzzle(){
     }
 
 
-    puzzleUnlocked=true;
+    puzzleUnlocked = true;
 
 
     puzzleStatus.textContent =
@@ -3231,19 +3177,24 @@ function unlockPuzzle(){
 
 
     puzzlePieces.forEach(
-        piece=>{
+        piece => {
+
             piece.classList.add(
                 "correct"
             );
+
         }
     );
 
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        startSecretSequence();
+            startSecretSequence();
 
-    },1200);
+        },
+        1200
+    );
 
 }
 
@@ -3261,128 +3212,162 @@ function startSecretSequence(){
         "0";
 
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        secretTransition.classList.add(
-            "active"
-        );
+            secretTransition.classList.add(
+                "active"
+            );
 
-    },500);
-
-
-    setTimeout(()=>{
-
-        secretSmall.classList.add(
-            "show"
-        );
-
-    },1000);
+        },
+        500
+    );
 
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        secretLine1.classList.add(
-            "show"
-        );
-
-    },1900);
-
-
-    setTimeout(()=>{
-
-        secretLine1.classList.remove(
-            "show"
-        );
-
-    },3500);
-
-
-    setTimeout(()=>{
-
-        secretLine2.classList.add(
-            "show"
-        );
-
-    },3900);
-
-
-    setTimeout(()=>{
-
-        secretLine2.classList.remove(
-            "show"
-        );
-
-    },5400);
-
-
-    setTimeout(()=>{
-
-        secretLine3.classList.add(
-            "show"
-        );
-
-    },5800);
-
-
-    setTimeout(()=>{
-
-        secretTransition.classList.remove(
-            "active"
-        );
-
-
-        secretLine3.classList.remove(
-            "show"
-        );
-
-
-        secretSmall.classList.remove(
-            "show"
-        );
-
-
-        secretReveal.classList.add(
-            "active"
-        );
-
-
-        setTimeout(()=>{
-
-            secretPhoto.classList.add(
+            secretSmall.classList.add(
                 "show"
             );
 
-        },500);
+        },
+        1000
+    );
 
 
-        setTimeout(()=>{
+    setTimeout(
+        () => {
 
-            secretRevealText.classList.add(
+            secretLine1.classList.add(
                 "show"
             );
 
-        },1800);
+        },
+        1900
+    );
 
 
-        setTimeout(()=>{
+    setTimeout(
+        () => {
 
-            secretBadge.classList.add(
+            secretLine1.classList.remove(
                 "show"
             );
 
-        },2900);
+        },
+        3500
+    );
 
 
-        setTimeout(()=>{
+    setTimeout(
+        () => {
 
-            continueBtn.classList.add(
+            secretLine2.classList.add(
                 "show"
             );
 
-        },3600);
+        },
+        3900
+    );
 
 
-    },7000);
+    setTimeout(
+        () => {
+
+            secretLine2.classList.remove(
+                "show"
+            );
+
+        },
+        5400
+    );
+
+
+    setTimeout(
+        () => {
+
+            secretLine3.classList.add(
+                "show"
+            );
+
+        },
+        5800
+    );
+
+
+    setTimeout(
+        () => {
+
+            secretTransition.classList.remove(
+                "active"
+            );
+
+            secretLine3.classList.remove(
+                "show"
+            );
+
+            secretSmall.classList.remove(
+                "show"
+            );
+
+
+            secretReveal.classList.add(
+                "active"
+            );
+
+
+            setTimeout(
+                () => {
+
+                    secretPhoto.classList.add(
+                        "show"
+                    );
+
+                },
+                500
+            );
+
+
+            setTimeout(
+                () => {
+
+                    secretRevealText.classList.add(
+                        "show"
+                    );
+
+                },
+                1800
+            );
+
+
+            setTimeout(
+                () => {
+
+                    secretBadge.classList.add(
+                        "show"
+                    );
+
+                },
+                2900
+            );
+
+
+            setTimeout(
+                () => {
+
+                    continueBtn.classList.add(
+                        "show"
+                    );
+
+                },
+                3600
+            );
+
+
+        },
+        7000
+    );
 
 }
 
@@ -3393,60 +3378,66 @@ function startSecretSequence(){
 
 continueBtn.addEventListener(
     "click",
-    ()=>{
+    () => {
 
         secretReveal.classList.remove(
             "active"
         );
 
 
-        setTimeout(()=>{
+        setTimeout(
+            () => {
 
-            puzzle.style.transform =
-                "scale(1)";
+                puzzle.style.transform =
+                    "scale(1)";
 
-            puzzle.style.opacity =
-                "1";
+                puzzle.style.opacity =
+                    "1";
 
 
-            const unlockedMemory =
-                document.getElementById(
-                    "unlockedMemory"
+                const unlockedMemory =
+                    document.getElementById(
+                        "unlockedMemory"
+                    );
+
+
+                unlockedMemory.classList.add(
+                    "show"
                 );
 
 
-            unlockedMemory.classList.add(
-                "show"
-            );
+                lockIcon.textContent =
+                    "🔓";
 
 
-            lockIcon.textContent =
-                "🔓";
+                puzzleTitle.textContent =
+                    "The memory you unlocked.";
 
 
-            puzzleTitle.textContent =
-                "The memory you unlocked.";
+                puzzleHint.textContent =
+                    "You found the one I was hiding for you. ♡";
 
 
-            puzzleHint.textContent =
-                "You found the one I was hiding for you. ♡";
+                puzzleStatus.textContent =
+                    "1 secret unlocked ♡";
 
 
-            puzzleStatus.textContent =
-                "1 secret unlocked ♡";
+                setTimeout(
+                    () => {
+
+                        unlockedMemory.scrollIntoView({
+                            behavior:"smooth",
+                            block:"center"
+                        });
+
+                    },
+                    300
+                );
 
 
-            setTimeout(()=>{
-
-                unlockedMemory.scrollIntoView({
-                    behavior:"smooth",
-                    block:"center"
-                });
-
-            },300);
-
-
-        },800);
+            },
+            800
+        );
 
     }
 );
@@ -3458,7 +3449,7 @@ continueBtn.addEventListener(
 
 shuffleBtn.addEventListener(
     "click",
-    ()=>{
+    () => {
 
         if(
             puzzleUnlocked
@@ -3467,18 +3458,16 @@ shuffleBtn.addEventListener(
         }
 
 
-        pieces=[
+        pieces = [
             ...solvedOrder
         ];
 
 
         shufflePieces();
 
-
         renderPuzzle();
 
-
-        selectedIndex=null;
+        selectedIndex = null;
 
 
         puzzleStatus.textContent =
@@ -3494,7 +3483,7 @@ shuffleBtn.addEventListener(
 
 resetBtn.addEventListener(
     "click",
-    ()=>{
+    () => {
 
         if(
             puzzleUnlocked
@@ -3503,15 +3492,14 @@ resetBtn.addEventListener(
         }
 
 
-        pieces=[
+        pieces = [
             ...solvedOrder
         ];
 
 
         renderPuzzle();
 
-
-        selectedIndex=null;
+        selectedIndex = null;
 
 
         puzzleStatus.textContent =
@@ -3529,7 +3517,7 @@ document
 .getElementById("replayBtn")
 .addEventListener(
     "click",
-    ()=>{
+    () => {
 
         window.scrollTo({
             top:0,
@@ -3537,14 +3525,17 @@ document
         });
 
 
-        setTimeout(()=>{
+        setTimeout(
+            () => {
 
-            intro.style.display =
-                "flex";
+                intro.style.display =
+                    "flex";
 
-            startIntro();
+                startIntro();
 
-        },800);
+            },
+            800
+        );
 
     }
 );
@@ -3575,15 +3566,14 @@ document
     ".memory img"
 )
 .forEach(
-    img=>{
+    img => {
 
         img.addEventListener(
             "click",
-            ()=>{
+            () => {
 
                 lightboxImage.src =
                     img.src;
-
 
                 lightbox.classList.add(
                     "show"
@@ -3598,7 +3588,7 @@ document
 
 closeLightbox.addEventListener(
     "click",
-    ()=>{
+    () => {
 
         lightbox.classList.remove(
             "show"
@@ -3610,10 +3600,10 @@ closeLightbox.addEventListener(
 
 lightbox.addEventListener(
     "click",
-    event=>{
+    event => {
 
         if(
-            event.target===
+            event.target ===
             lightbox
         ){
 
@@ -3636,7 +3626,7 @@ createPuzzle();
 
 window.addEventListener(
     "load",
-    ()=>{
+    () => {
 
         passwordInput.focus();
 
