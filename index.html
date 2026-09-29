@@ -60,6 +60,179 @@ body::before{
 }
 
 /* =====================================================
+   KISS IMAGE
+   نفس صورة البوسة المرفوعة على GitHub
+===================================================== */
+
+.kiss-sticker{
+    position:absolute;
+    width:95px;
+    height:auto;
+    object-fit:contain;
+    pointer-events:none;
+    user-select:none;
+    z-index:5;
+
+    filter:
+        drop-shadow(
+            0 10px 18px
+            rgba(120,40,70,.12)
+        );
+
+    animation:
+        kissFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes kissFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50%{
+        transform:
+            translateY(-8px)
+            rotate(4deg);
+    }
+
+}
+
+/* PASSWORD */
+
+.kiss-password{
+    width:125px;
+    top:-55px;
+    right:-45px;
+    transform:rotate(12deg);
+}
+
+/* HANDWRITING */
+
+.kiss-hand{
+    width:105px;
+    bottom:7%;
+    right:5%;
+    opacity:.85;
+    transform:rotate(10deg);
+}
+
+/* INTRO */
+
+.kiss-intro{
+    width:120px;
+    top:12%;
+    right:8%;
+    opacity:.85;
+    transform:rotate(12deg);
+}
+
+/* LOVE SCREEN */
+
+.kiss-love{
+    width:105px;
+    bottom:13%;
+    left:8%;
+    opacity:.8;
+    transform:rotate(-12deg);
+}
+
+/* QUESTION */
+
+.kiss-question{
+    width:115px;
+    top:-42px;
+    left:-45px;
+    transform:rotate(-15deg);
+}
+
+/* HERO */
+
+.kiss-hero{
+    width:120px;
+    top:12%;
+    right:5%;
+    opacity:.8;
+    transform:rotate(14deg);
+}
+
+/* STORY */
+
+.kiss-story{
+    width:95px;
+    top:18%;
+    left:2%;
+    opacity:.7;
+    transform:rotate(-14deg);
+}
+
+/* SONG */
+
+.kiss-song{
+    width:80px;
+    top:-35px;
+    right:-25px;
+    opacity:.85;
+    transform:rotate(15deg);
+}
+
+/* MEMORIES */
+
+.kiss-memory{
+    width:75px;
+    bottom:18px;
+    right:18px;
+    opacity:.85;
+    transform:rotate(10deg);
+}
+
+/* PUZZLE */
+
+.kiss-puzzle{
+    width:95px;
+    top:5%;
+    right:2%;
+    opacity:.75;
+    transform:rotate(16deg);
+}
+
+/* TIMELINE */
+
+.kiss-timeline{
+    width:80px;
+    top:50%;
+    left:-45px;
+    opacity:.75;
+    transform:rotate(-13deg);
+}
+
+/* FINAL */
+
+.kiss-final{
+    width:210px;
+    top:-65px;
+    right:50%;
+    transform:
+        translateX(50%)
+        rotate(8deg);
+    opacity:.9;
+    z-index:0;
+}
+
+.final{
+    position:relative;
+}
+
+.final > *:not(.kiss-sticker){
+    position:relative;
+    z-index:2;
+}
+
+/* =====================================================
    FLOATING BOWS
 ===================================================== */
 
@@ -100,15 +273,20 @@ body::before{
 }
 
 @keyframes floatBow{
+
     0%,100%{
-        transform:translateY(0) rotate(-5deg);
+        transform:
+            translateY(0)
+            rotate(-5deg);
     }
 
     50%{
-        transform:translateY(-15px) rotate(5deg);
+        transform:
+            translateY(-15px)
+            rotate(5deg);
     }
-}
 
+}
 
 /* =====================================================
    PASSWORD SCREEN
@@ -160,6 +338,7 @@ body::before{
 }
 
 @keyframes bowPulse{
+
     0%,100%{
         transform:scale(1);
     }
@@ -167,6 +346,7 @@ body::before{
     50%{
         transform:scale(1.08);
     }
+
 }
 
 .password-lock{
@@ -190,7 +370,8 @@ body::before{
     background:#fff;
 
     box-shadow:
-        0 10px 35px rgba(232,91,142,.12);
+        0 10px 35px
+        rgba(232,91,142,.12);
 }
 
 .password-small{
@@ -256,14 +437,17 @@ body::before{
 
     transition:.3s;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.04);
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.04);
 }
 
 #passwordInput:focus{
     border-color:#e85d8f;
 
     box-shadow:
-        0 0 25px rgba(232,93,143,.15);
+        0 0 25px
+        rgba(232,93,143,.15);
 }
 
 #passwordInput::placeholder{
@@ -332,7 +516,6 @@ body::before{
 
 }
 
-
 /* =====================================================
    HANDWRITING INTRO
 ===================================================== */
@@ -371,6 +554,8 @@ body::before{
 
     align-items:center;
     justify-content:center;
+
+    position:relative;
 }
 
 .handwriting{
@@ -440,7 +625,6 @@ body::before{
     }
 
 }
-
 
 /* =====================================================
    ORIGINAL INTRO
@@ -597,9 +781,11 @@ body::before{
 }
 
 @keyframes fadeSub{
+
     to{
         opacity:1;
     }
+
 }
 
 .new-photo{
@@ -669,7 +855,6 @@ body::before{
     background:#d94f80;
     transform:translateY(-2px);
 }
-
 
 /* =====================================================
    LOVE QUESTION
@@ -866,6 +1051,7 @@ body::before{
 }
 
 @keyframes heartFloat{
+
     0%,100%{
         transform:translateY(0);
     }
@@ -873,8 +1059,8 @@ body::before{
     50%{
         transform:translateY(-8px);
     }
-}
 
+}
 
 /* =====================================================
    MAIN
@@ -1119,7 +1305,6 @@ audio{
     width:100%;
 }
 
-
 /* =====================================================
    MEMORIES
 ===================================================== */
@@ -1138,6 +1323,8 @@ audio{
     gap:18px;
 
     margin-top:40px;
+
+    position:relative;
 }
 
 .memory{
@@ -1194,7 +1381,6 @@ audio{
 
     font-size:22px;
 }
-
 
 /* =====================================================
    PUZZLE
@@ -1388,7 +1574,6 @@ audio{
     font-size:13px;
 }
 
-
 /* =====================================================
    SECRET TRANSITION
 ===================================================== */
@@ -1473,7 +1658,6 @@ audio{
 .secret-small.show{
     opacity:1;
 }
-
 
 /* =====================================================
    SECRET REVEAL
@@ -1640,7 +1824,6 @@ audio{
     background:#d94f80;
 }
 
-
 /* =====================================================
    UNLOCKED MEMORY
 ===================================================== */
@@ -1719,7 +1902,6 @@ audio{
     line-height:1.7;
 }
 
-
 /* =====================================================
    TIMELINE
 ===================================================== */
@@ -1794,7 +1976,6 @@ audio{
     line-height:1.8;
 }
 
-
 /* =====================================================
    FINAL
 ===================================================== */
@@ -1811,6 +1992,8 @@ audio{
     justify-content:center;
 
     align-items:center;
+
+    position:relative;
 }
 
 .final h2{
@@ -1880,7 +2063,6 @@ footer{
     letter-spacing:2px;
 }
 
-
 /* =====================================================
    LIGHTBOX
 ===================================================== */
@@ -1930,7 +2112,6 @@ footer{
     cursor:pointer;
 }
 
-
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -1963,6 +2144,70 @@ footer{
 
     .bow{
         font-size:30px;
+    }
+
+    .kiss-password{
+        width:90px;
+        right:-15px;
+        top:-35px;
+    }
+
+    .kiss-hand{
+        width:75px;
+        right:2%;
+    }
+
+    .kiss-intro{
+        width:80px;
+        right:3%;
+    }
+
+    .kiss-love{
+        width:75px;
+        left:3%;
+    }
+
+    .kiss-question{
+        width:80px;
+        left:-20px;
+        top:-28px;
+    }
+
+    .kiss-hero{
+        width:80px;
+        right:2%;
+    }
+
+    .kiss-story{
+        width:65px;
+        left:0;
+    }
+
+    .kiss-song{
+        width:60px;
+        right:-8px;
+        top:-25px;
+    }
+
+    .kiss-memory{
+        width:55px;
+        right:10px;
+        bottom:10px;
+    }
+
+    .kiss-puzzle{
+        width:70px;
+        right:0;
+    }
+
+    .kiss-timeline{
+        width:60px;
+        left:-18px;
+    }
+
+    .kiss-final{
+        width:140px;
+        top:-45px;
     }
 
 }
@@ -2012,7 +2257,6 @@ footer{
 
 }
 
-
 /* =====================================================
    EXTRA PINK DECORATIONS
 ===================================================== */
@@ -2028,7 +2272,11 @@ footer{
 
     pointer-events:none;
 
-    animation:heartFloat 4s ease-in-out infinite;
+    animation:
+        heartFloat
+        4s
+        ease-in-out
+        infinite;
 }
 
 .hero .pink-heart:nth-child(1){
@@ -2064,6 +2312,13 @@ footer{
 <div id="passwordScreen">
 
     <div class="password-card">
+
+        <!-- KISS -->
+        <img
+            class="kiss-sticker kiss-password"
+            src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+            alt="kiss"
+        >
 
         <div class="password-bow">
             🎀
@@ -2120,6 +2375,13 @@ footer{
 
     <div class="handIntro-content">
 
+        <!-- KISS -->
+        <img
+            class="kiss-sticker kiss-hand"
+            src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+            alt="kiss"
+        >
+
         <img
             src="red_handwriting_only.png"
             class="handwriting"
@@ -2140,6 +2402,13 @@ footer{
 ===================================================== -->
 
 <div id="intro">
+
+    <!-- KISS -->
+    <img
+        class="kiss-sticker kiss-intro"
+        src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+        alt="kiss"
+    >
 
     <div class="intro-text" id="introText">
 
@@ -2164,6 +2433,13 @@ footer{
 
 
     <div class="love-screen" id="loveScreen">
+
+        <!-- KISS -->
+        <img
+            class="kiss-sticker kiss-love"
+            src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+            alt="kiss"
+        >
 
         <div>
 
@@ -2206,6 +2482,13 @@ footer{
 
     <div class="question-card">
 
+        <!-- KISS -->
+        <img
+            class="kiss-sticker kiss-question"
+            src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+            alt="kiss"
+        >
+
         <div class="question-bow">
             🎀
         </div>
@@ -2214,9 +2497,7 @@ footer{
             One little question...
         </div>
 
-        <div
-            id="questionContent"
-        >
+        <div id="questionContent">
 
             <div class="question-title">
                 بتحبيني؟
@@ -2252,9 +2533,7 @@ footer{
         </div>
 
 
-        <div
-            id="finalLoveMessage"
-        >
+        <div id="finalLoveMessage">
 
             <div class="final-love">
                 وأنا بموت فيكي
@@ -2325,12 +2604,21 @@ footer{
 </header>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section
     class="hero"
     id="home"
 >
+
+    <!-- KISS -->
+    <img
+        class="kiss-sticker kiss-hero"
+        src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+        alt="kiss"
+    >
 
     <span class="pink-heart">
         ♡
@@ -2367,9 +2655,18 @@ footer{
 </section>
 
 
-<!-- STORY -->
+<!-- =====================================================
+     STORY
+===================================================== -->
 
 <section id="story">
+
+    <!-- KISS -->
+    <img
+        class="kiss-sticker kiss-story"
+        src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+        alt="kiss"
+    >
 
     <div class="story">
 
@@ -2407,7 +2704,9 @@ footer{
 </section>
 
 
-<!-- SONG -->
+<!-- =====================================================
+     SONG
+===================================================== -->
 
 <section class="song">
 
@@ -2420,6 +2719,13 @@ footer{
     </h2>
 
     <div class="song-box">
+
+        <!-- KISS -->
+        <img
+            class="kiss-sticker kiss-song"
+            src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+            alt="kiss"
+        >
 
         <div class="song-title">
             A song for you ♡
@@ -2439,7 +2745,9 @@ footer{
 </section>
 
 
-<!-- MEMORIES -->
+<!-- =====================================================
+     MEMORIES
+===================================================== -->
 
 <section id="memories">
 
@@ -2455,6 +2763,13 @@ footer{
 
 
         <div class="memory-grid">
+
+            <!-- KISS -->
+            <img
+                class="kiss-sticker kiss-memory"
+                src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+                alt="kiss"
+            >
 
 
             <div class="memory">
@@ -2540,7 +2855,6 @@ footer{
 
             </div>
 
-
         </div>
 
     </div>
@@ -2548,22 +2862,28 @@ footer{
 </section>
 
 
-<!-- PUZZLE -->
+<!-- =====================================================
+     PUZZLE
+===================================================== -->
 
 <section id="puzzleSection">
 
-    <div class="puzzle-section">
+    <!-- KISS -->
+    <img
+        class="kiss-sticker kiss-puzzle"
+        src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+        alt="kiss"
+    >
 
+    <div class="puzzle-section">
 
         <div class="section-label">
             🎀 One more thing... 🎀
         </div>
 
-
         <h2 class="section-title">
             A secret memory.
         </h2>
-
 
         <p class="puzzle-intro">
 
@@ -2582,7 +2902,6 @@ footer{
 
 
         <div class="locked-memory">
-
 
             <div
                 class="lock-icon"
@@ -2669,12 +2988,20 @@ footer{
 </section>
 
 
-<!-- TIMELINE -->
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
 
 <section>
 
-    <div class="timeline">
+    <!-- KISS -->
+    <img
+        class="kiss-sticker kiss-timeline"
+        src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+        alt="kiss"
+    >
 
+    <div class="timeline">
 
         <div class="section-label">
             🎀 Our story 🎀
@@ -2698,6 +3025,7 @@ footer{
 
             <p>
                 Somewhere along the way,
+
                 you became someone very special to me.
             </p>
 
@@ -2740,16 +3068,23 @@ footer{
 
         </div>
 
-
     </div>
 
 </section>
 
 
-<!-- FINAL -->
+<!-- =====================================================
+     FINAL
+===================================================== -->
 
 <section class="final">
 
+    <!-- KISS -->
+    <img
+        class="kiss-sticker kiss-final"
+        src="2D75A7CA-6339-4829-B00F-D5D43074B736.png"
+        alt="kiss"
+    >
 
     <div class="section-label">
         🎀 Before you leave... 🎀
@@ -2897,6 +3232,7 @@ footer{
     <div class="close-lightbox">
         ×
     </div>
+
 
     <img
         id="lightboxImage"
@@ -3416,12 +3752,6 @@ introNext.addEventListener(
 
                 intro.style.display =
                     "none";
-
-                /*
-                 * NEW:
-                 * Question appears before
-                 * the main website.
-                 */
 
                 showLoveQuestion();
 
