@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,10 @@
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -24,32 +28,85 @@ html{
 }
 
 body{
-    background:#050509;
-    color:white;
+    background:#fff8fb;
+    color:#292329;
     font-family:"Montserrat",sans-serif;
     overflow-x:hidden;
 }
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    opacity:.3;
+    z-index:-2;
 
-    background-image:
-        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px),
-        radial-gradient(circle,rgba(255,255,255,.4) 1px,transparent 1px);
-
-    background-size:90px 90px,140px 140px;
-    background-position:10px 20px,50px 80px;
-
-    animation:stars 25s linear infinite;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,157,193,.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(255,195,216,.18),
+            transparent 30%
+        ),
+        #fff8fb;
 }
 
-@keyframes stars{
-    from{transform:translateY(0)}
-    to{transform:translateY(-90px)}
+/* =====================================================
+   FLOATING BOWS
+===================================================== */
+
+.bow{
+    position:fixed;
+    z-index:0;
+    color:#ef6f9f;
+    font-size:42px;
+    opacity:.45;
+    pointer-events:none;
+    animation:floatBow 6s ease-in-out infinite;
+}
+
+.bow-1{
+    top:12%;
+    left:3%;
+}
+
+.bow-2{
+    top:38%;
+    right:3%;
+    font-size:35px;
+    animation-delay:1.5s;
+}
+
+.bow-3{
+    top:72%;
+    left:4%;
+    font-size:30px;
+    animation-delay:3s;
+}
+
+.bow-4{
+    top:82%;
+    right:5%;
+    font-size:45px;
+    animation-delay:2s;
+}
+
+@keyframes floatBow{
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+
+    50%{
+        transform:translateY(-15px) rotate(5deg);
+    }
 }
 
 
@@ -65,10 +122,10 @@ body::before{
     background:
         radial-gradient(
             circle at center,
-            rgba(160,70,110,.13),
-            transparent 48%
+            rgba(255,126,171,.18),
+            transparent 45%
         ),
-        #020204;
+        #fff8fb;
 
     display:flex;
     align-items:center;
@@ -92,6 +149,24 @@ body::before{
     display:flex;
     flex-direction:column;
     align-items:center;
+
+    position:relative;
+}
+
+.password-bow{
+    font-size:55px;
+    margin-bottom:12px;
+    animation:bowPulse 2s ease-in-out infinite;
+}
+
+@keyframes bowPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
 }
 
 .password-lock{
@@ -102,30 +177,35 @@ body::before{
     align-items:center;
     justify-content:center;
 
-    border:1px solid rgba(232,167,201,.35);
+    border:1px solid rgba(232,91,142,.35);
     border-radius:50%;
 
-    color:#e8a7c9;
+    color:#e85d8f;
+
     font-family:"Cormorant Garamond",serif;
     font-size:28px;
 
-    margin-bottom:25px;
+    margin-bottom:20px;
+
+    background:#fff;
 
     box-shadow:
-        0 0 45px rgba(232,167,201,.08);
+        0 10px 35px rgba(232,91,142,.12);
 }
 
 .password-small{
     text-transform:uppercase;
     letter-spacing:5px;
     font-size:10px;
-    color:#777;
+    color:#9b7c89;
     margin-bottom:16px;
 }
 
 .password-card h1{
     font-family:"Great Vibes",cursive;
     font-weight:400;
+
+    color:#292329;
 
     font-size:clamp(45px,9vw,75px);
 
@@ -135,7 +215,7 @@ body::before{
 
 .password-hint{
     font-family:"Cormorant Garamond",serif;
-    color:#c9aabb;
+    color:#b85c82;
 
     font-size:21px;
     letter-spacing:1px;
@@ -158,13 +238,13 @@ body::before{
 
     border-radius:50px;
 
-    border:1px solid rgba(255,255,255,.18);
+    border:1px solid rgba(232,91,142,.25);
 
     outline:none;
 
-    background:rgba(255,255,255,.04);
+    background:white;
 
-    color:white;
+    color:#292329;
 
     text-align:center;
 
@@ -175,24 +255,26 @@ body::before{
     font-family:"Montserrat",sans-serif;
 
     transition:.3s;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.04);
 }
 
 #passwordInput:focus{
-    border-color:rgba(232,167,201,.55);
+    border-color:#e85d8f;
 
     box-shadow:
-        0 0 25px rgba(232,167,201,.08);
+        0 0 25px rgba(232,93,143,.15);
 }
 
 #passwordInput::placeholder{
     letter-spacing:1px;
-    color:#666;
+    color:#aaa;
 }
 
 #passwordForm button{
-    border:1px solid rgba(255,255,255,.25);
+    border:1px solid #e85d8f;
 
-    background:transparent;
+    background:#e85d8f;
 
     color:white;
 
@@ -208,8 +290,8 @@ body::before{
 }
 
 #passwordForm button:hover{
-    background:white;
-    color:#050509;
+    background:#d94f80;
+    transform:translateY(-2px);
 }
 
 #passwordError{
@@ -217,7 +299,7 @@ body::before{
 
     margin-top:15px;
 
-    color:#c994b2;
+    color:#c04d79;
 
     font-size:12px;
 
@@ -261,7 +343,7 @@ body::before{
 
     z-index:10000;
 
-    background:#020204;
+    background:#fff8fb;
 
     display:flex;
     align-items:center;
@@ -307,7 +389,7 @@ body::before{
     filter:
         drop-shadow(
             0 15px 30px
-            rgba(0,0,0,.25)
+            rgba(220,90,130,.15)
         );
 
     animation:
@@ -322,14 +404,9 @@ body::before{
 
     font-family:"Great Vibes",cursive;
 
-    font-size:
-        clamp(
-            28px,
-            6vw,
-            55px
-        );
+    font-size:clamp(28px,6vw,55px);
 
-    color:#e8a7c9;
+    color:#e85d8f;
 
     opacity:0;
 
@@ -375,7 +452,7 @@ body::before{
 
     z-index:9999;
 
-    background:#020204;
+    background:#fff8fb;
 
     display:flex;
 
@@ -402,7 +479,7 @@ body::before{
 
     text-transform:uppercase;
 
-    color:#aaa;
+    color:#9b7c89;
 
     margin-bottom:25px;
 }
@@ -410,16 +487,13 @@ body::before{
 .intro-main{
     font-family:"Cormorant Garamond",serif;
 
-    font-size:
-        clamp(
-            38px,
-            8vw,
-            75px
-        );
+    font-size:clamp(38px,8vw,75px);
+
+    color:#292329;
 }
 
 .intro-heart{
-    color:#e6a8c8;
+    color:#e85d8f;
 }
 
 .intro-photo{
@@ -441,7 +515,7 @@ body::before{
 
     box-shadow:
         0 30px 80px
-        rgba(0,0,0,.7);
+        rgba(150,60,90,.25);
 
     transition:
         opacity 1.2s ease,
@@ -482,10 +556,10 @@ body::before{
     background:
         radial-gradient(
             circle,
-            rgba(160,70,110,.16),
+            rgba(255,120,170,.17),
             transparent 50%
         ),
-        #020204;
+        #fff8fb;
 
     transition:opacity .8s ease;
 }
@@ -497,18 +571,15 @@ body::before{
 .love-title{
     font-family:"Great Vibes",cursive;
 
-    font-size:
-        clamp(
-            45px,
-            10vw,
-            100px
-        );
+    color:#e85d8f;
+
+    font-size:clamp(45px,10vw,100px);
 }
 
 .love-sub{
     margin-top:20px;
 
-    color:#d5b5c6;
+    color:#b85c82;
 
     font-family:"Cormorant Garamond",serif;
 
@@ -547,12 +618,12 @@ body::before{
     transform:scale(.9);
 
     filter:
-        brightness(.5)
+        brightness(.85)
         blur(5px);
 
     box-shadow:
         0 30px 90px
-        rgba(0,0,0,.8);
+        rgba(150,60,90,.25);
 
     transition:
         opacity 1.3s ease,
@@ -579,13 +650,11 @@ body::before{
 
     transform:translateY(15px);
 
-    background:transparent;
+    background:#e85d8f;
 
     color:white;
 
-    border:
-        1px solid
-        rgba(255,255,255,.35);
+    border:1px solid #e85d8f;
 
     padding:14px 25px;
 
@@ -597,8 +666,213 @@ body::before{
 }
 
 .intro-next:hover{
+    background:#d94f80;
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   LOVE QUESTION
+===================================================== */
+
+#loveQuestion{
+    position:fixed;
+    inset:0;
+
+    z-index:9500;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,130,175,.18),
+            transparent 50%
+        ),
+        #fff8fb;
+
+    opacity:0;
+
+    transition:opacity .8s ease;
+}
+
+#loveQuestion.show{
+    display:flex;
+    opacity:1;
+}
+
+.question-card{
+    width:min(92vw,620px);
+
+    padding:55px 30px;
+
+    border:1px solid rgba(232,93,143,.18);
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.8);
+
+    box-shadow:
+        0 30px 100px
+        rgba(220,80,130,.12);
+
+    position:relative;
+}
+
+.question-bow{
+    font-size:58px;
+    margin-bottom:10px;
+
+    animation:bowPulse 2s infinite;
+}
+
+.question-small{
+    color:#b45a80;
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:10px;
+
+    margin-bottom:18px;
+}
+
+.question-title{
+    font-family:"Great Vibes",cursive;
+
+    color:#e85d8f;
+
+    font-size:clamp(55px,12vw,100px);
+
+    font-weight:400;
+
+    line-height:1;
+
+    margin-bottom:20px;
+}
+
+.question-text{
+    font-family:"Cormorant Garamond",serif;
+
+    color:#62515a;
+
+    font-size:25px;
+
+    margin-bottom:30px;
+}
+
+.question-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.question-btn{
+    min-width:130px;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    border:1px solid #e85d8f;
+
+    background:#e85d8f;
+
+    color:white;
+
+    font-family:"Montserrat",sans-serif;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.question-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(232,93,143,.2);
+}
+
+.question-btn.secondary{
     background:white;
-    color:black;
+
+    color:#e85d8f;
+}
+
+.question-btn.secondary:hover{
+    background:#fff0f5;
+}
+
+.question-response{
+    font-family:"Cormorant Garamond",serif;
+
+    color:#e85d8f;
+
+    font-size:24px;
+
+    margin-top:20px;
+
+    min-height:30px;
+}
+
+#finalLoveMessage{
+    display:none;
+}
+
+.final-love{
+    font-family:"Great Vibes",cursive;
+
+    color:#e85d8f;
+
+    font-size:clamp(45px,9vw,85px);
+
+    line-height:1.2;
+
+    margin-bottom:25px;
+}
+
+.final-love-sub{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:25px;
+
+    color:#69545e;
+
+    line-height:1.7;
+}
+
+.final-hearts{
+    font-size:30px;
+
+    margin-top:25px;
+
+    letter-spacing:10px;
+
+    animation:heartFloat 2s infinite;
+}
+
+@keyframes heartFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
 
@@ -634,22 +908,23 @@ header{
     padding:22px 6%;
 
     background:
-        rgba(5,5,9,.55);
+        rgba(255,255,255,.82);
 
     backdrop-filter:blur(15px);
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.06);
+        rgba(232,93,143,.1);
 }
 
 .logo{
     font-family:"Cormorant Garamond",serif;
     font-size:20px;
+    color:#292329;
 }
 
 .logo span{
-    color:#e8a7c9;
+    color:#e85d8f;
 }
 
 nav{
@@ -658,7 +933,7 @@ nav{
 }
 
 nav a{
-    color:#aaa;
+    color:#866c77;
     text-decoration:none;
 
     font-size:12px;
@@ -669,7 +944,7 @@ nav a{
 }
 
 nav a:hover{
-    color:white;
+    color:#e85d8f;
 }
 
 .hero{
@@ -683,10 +958,15 @@ nav a:hover{
     text-align:center;
 
     padding:100px 20px 60px;
+
+    position:relative;
 }
 
 .hero-content{
     max-width:800px;
+
+    position:relative;
+    z-index:2;
 }
 
 .eyebrow{
@@ -696,7 +976,7 @@ nav a:hover{
 
     font-size:11px;
 
-    color:#999;
+    color:#9b7c89;
 
     margin-bottom:25px;
 }
@@ -704,12 +984,9 @@ nav a:hover{
 .hero h1{
     font-family:"Great Vibes",cursive;
 
-    font-size:
-        clamp(
-            70px,
-            15vw,
-            150px
-        );
+    color:#e85d8f;
+
+    font-size:clamp(70px,15vw,150px);
 
     font-weight:400;
 
@@ -719,7 +996,7 @@ nav a:hover{
 }
 
 .hero p{
-    color:#aaa;
+    color:#75636b;
 
     max-width:550px;
 
@@ -733,11 +1010,9 @@ nav a:hover{
 .hero-btn{
     margin-top:35px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.25);
+    border:1px solid #e85d8f;
 
-    background:transparent;
+    background:#e85d8f;
 
     color:white;
 
@@ -751,12 +1026,15 @@ nav a:hover{
 }
 
 .hero-btn:hover{
-    background:white;
-    color:#050509;
+    background:#d94f80;
+
+    transform:translateY(-3px);
 }
 
 section{
     padding:110px 7%;
+
+    position:relative;
 }
 
 .section-label{
@@ -764,7 +1042,7 @@ section{
 
     letter-spacing:4px;
 
-    color:#777;
+    color:#b18194;
 
     font-size:10px;
 
@@ -774,12 +1052,9 @@ section{
 .section-title{
     font-family:"Cormorant Garamond",serif;
 
-    font-size:
-        clamp(
-            40px,
-            7vw,
-            75px
-        );
+    color:#292329;
+
+    font-size:clamp(40px,7vw,75px);
 
     font-weight:400;
 
@@ -795,7 +1070,7 @@ section{
 }
 
 .story-text{
-    color:#bbb;
+    color:#75636b;
 
     line-height:2.1;
 
@@ -817,16 +1092,23 @@ section{
 
     border:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(232,93,143,.12);
 
     border-radius:25px;
 
-    background:
-        rgba(255,255,255,.025);
+    background:white;
+
+    box-shadow:
+        0 20px 60px
+        rgba(220,80,130,.08);
+
+    position:relative;
 }
 
 .song-title{
     font-family:"Cormorant Garamond",serif;
+
+    color:#292329;
 
     font-size:30px;
 
@@ -869,7 +1151,11 @@ audio{
 
     cursor:pointer;
 
-    background:#111;
+    background:#f8e8ef;
+
+    box-shadow:
+        0 15px 40px
+        rgba(220,80,130,.08);
 }
 
 .memory img{
@@ -899,8 +1185,10 @@ audio{
     background:
         linear-gradient(
             transparent,
-            rgba(0,0,0,.85)
+            rgba(50,20,35,.75)
         );
+
+    color:white;
 
     font-family:"Cormorant Garamond",serif;
 
@@ -928,7 +1216,7 @@ audio{
         auto
         35px;
 
-    color:#999;
+    color:#806b74;
 
     line-height:1.8;
 }
@@ -944,16 +1232,15 @@ audio{
 
     border:
         1px solid
-        rgba(255,255,255,.09);
+        rgba(232,93,143,.14);
 
     border-radius:28px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.035),
-            rgba(255,255,255,.01)
-        );
+    background:white;
+
+    box-shadow:
+        0 20px 70px
+        rgba(220,80,130,.08);
 }
 
 .lock-icon{
@@ -968,13 +1255,15 @@ audio{
 .locked-memory h3{
     font-family:"Cormorant Garamond",serif;
 
+    color:#292329;
+
     font-size:32px;
 
     font-weight:400;
 }
 
 .locked-memory p{
-    color:#888;
+    color:#927985;
 
     margin-top:10px;
 
@@ -1000,7 +1289,7 @@ audio{
 
     padding:4px;
 
-    background:#111;
+    background:#f3dce6;
 
     border-radius:15px;
 
@@ -1038,7 +1327,7 @@ audio{
 .puzzle-piece.selected{
     outline:
         3px solid
-        #e8a7c9;
+        #e85d8f;
 
     outline-offset:-3px;
 
@@ -1052,7 +1341,7 @@ audio{
 .puzzle-piece.correct{
     box-shadow:
         inset 0 0 0 2px
-        rgba(255,255,255,.5);
+        rgba(255,255,255,.8);
 }
 
 .puzzle-controls{
@@ -1068,11 +1357,11 @@ audio{
 .puzzle-btn{
     border:
         1px solid
-        rgba(255,255,255,.2);
+        #e85d8f;
 
-    background:transparent;
+    background:white;
 
-    color:white;
+    color:#e85d8f;
 
     padding:
         13px 23px;
@@ -1085,14 +1374,14 @@ audio{
 }
 
 .puzzle-btn:hover{
-    background:white;
-    color:black;
+    background:#e85d8f;
+    color:white;
 }
 
 .puzzle-status{
     min-height:25px;
 
-    color:#aaa;
+    color:#927985;
 
     margin-top:18px;
 
@@ -1111,7 +1400,7 @@ audio{
 
     z-index:8000;
 
-    background:#000;
+    background:#fff8fb;
 
     display:flex;
 
@@ -1142,6 +1431,8 @@ audio{
 .secret-line{
     font-family:"Cormorant Garamond",serif;
 
+    color:#292329;
+
     font-size:
         clamp(
             28px,
@@ -1170,7 +1461,7 @@ audio{
 
     letter-spacing:5px;
 
-    color:#777;
+    color:#c06a8d;
 
     margin-bottom:25px;
 
@@ -1195,7 +1486,7 @@ audio{
 
     z-index:8100;
 
-    background:#000;
+    background:#fff8fb;
 
     display:flex;
 
@@ -1236,7 +1527,7 @@ audio{
     transform:scale(.9);
 
     filter:
-        brightness(.5)
+        brightness(.8)
         blur(8px);
 
     transition:
@@ -1246,7 +1537,7 @@ audio{
 
     box-shadow:
         0 30px 100px
-        rgba(0,0,0,.9);
+        rgba(180,70,110,.18);
 }
 
 .secret-photo.show{
@@ -1275,7 +1566,7 @@ audio{
 
     line-height:1.6;
 
-    color:#ccc;
+    color:#6e5962;
 
     opacity:0;
 
@@ -1298,7 +1589,7 @@ audio{
 
     letter-spacing:4px;
 
-    color:#d9a9c5;
+    color:#d65b8c;
 
     text-transform:uppercase;
 
@@ -1321,9 +1612,9 @@ audio{
 
     border:
         1px solid
-        rgba(255,255,255,.3);
+        #e85d8f;
 
-    background:transparent;
+    background:#e85d8f;
 
     color:white;
 
@@ -1336,8 +1627,7 @@ audio{
     transition:
         opacity 1s ease,
         transform 1s ease,
-        background .3s,
-        color .3s;
+        background .3s;
 }
 
 .continue-btn.show{
@@ -1347,8 +1637,7 @@ audio{
 }
 
 .continue-btn:hover{
-    background:white;
-    color:#000;
+    background:#d94f80;
 }
 
 
@@ -1395,6 +1684,8 @@ audio{
 .unlocked-title{
     font-family:"Great Vibes",cursive;
 
+    color:#e85d8f;
+
     font-size:55px;
 
     margin-bottom:20px;
@@ -1411,7 +1702,7 @@ audio{
 
     box-shadow:
         0 30px 80px
-        rgba(0,0,0,.7);
+        rgba(180,70,110,.2);
 }
 
 .unlocked-text{
@@ -1419,7 +1710,7 @@ audio{
 
     font-size:23px;
 
-    color:#bbb;
+    color:#806b74;
 
     max-width:600px;
 
@@ -1442,7 +1733,7 @@ audio{
 .timeline-item{
     border-left:
         1px solid
-        rgba(255,255,255,.15);
+        rgba(232,93,143,.25);
 
     padding:
         0
@@ -1466,15 +1757,15 @@ audio{
 
     height:20px;
 
-    background:#050509;
+    background:#fff8fb;
 
-    color:#e8a7c9;
+    color:#e85d8f;
 
     text-align:center;
 }
 
 .timeline-date{
-    color:#e8a7c9;
+    color:#e85d8f;
 
     font-size:11px;
 
@@ -1488,13 +1779,15 @@ audio{
 .timeline-item h3{
     font-family:"Cormorant Garamond",serif;
 
+    color:#292329;
+
     font-size:30px;
 
     font-weight:400;
 }
 
 .timeline-item p{
-    color:#888;
+    color:#806b74;
 
     margin-top:10px;
 
@@ -1523,6 +1816,8 @@ audio{
 .final h2{
     font-family:"Great Vibes",cursive;
 
+    color:#e85d8f;
+
     font-size:
         clamp(
             60px,
@@ -1536,7 +1831,7 @@ audio{
 .final p{
     max-width:600px;
 
-    color:#999;
+    color:#806b74;
 
     line-height:2;
 
@@ -1552,11 +1847,11 @@ audio{
 .replay-btn{
     border:
         1px solid
-        rgba(255,255,255,.2);
+        #e85d8f;
 
-    background:transparent;
+    background:white;
 
-    color:white;
+    color:#e85d8f;
 
     padding:
         14px 25px;
@@ -1569,8 +1864,8 @@ audio{
 }
 
 .replay-btn:hover{
-    background:white;
-    color:black;
+    background:#e85d8f;
+    color:white;
 }
 
 footer{
@@ -1578,7 +1873,7 @@ footer{
 
     padding:30px;
 
-    color:#555;
+    color:#a88d99;
 
     font-size:11px;
 
@@ -1598,7 +1893,7 @@ footer{
     z-index:5000;
 
     background:
-        rgba(0,0,0,.92);
+        rgba(40,15,30,.92);
 
     display:none;
 
@@ -1666,6 +1961,10 @@ footer{
         padding:80px 5%;
     }
 
+    .bow{
+        font-size:30px;
+    }
+
 }
 
 @media(max-width:450px){
@@ -1703,6 +2002,44 @@ footer{
         font-size:34px;
     }
 
+    .question-card{
+        padding:45px 20px;
+    }
+
+    .question-title{
+        font-size:65px;
+    }
+
+}
+
+
+/* =====================================================
+   EXTRA PINK DECORATIONS
+===================================================== */
+
+.pink-heart{
+    position:absolute;
+
+    color:#ef82aa;
+
+    opacity:.45;
+
+    font-size:25px;
+
+    pointer-events:none;
+
+    animation:heartFloat 4s ease-in-out infinite;
+}
+
+.hero .pink-heart:nth-child(1){
+    top:20%;
+    left:8%;
+}
+
+.hero .pink-heart:nth-child(2){
+    bottom:20%;
+    right:8%;
+    animation-delay:1s;
 }
 
 </style>
@@ -1712,6 +2049,14 @@ footer{
 <body>
 
 
+<!-- FLOATING BOWS -->
+
+<div class="bow bow-1">🎀</div>
+<div class="bow bow-2">🎀</div>
+<div class="bow bow-3">🎀</div>
+<div class="bow bow-4">🎀</div>
+
+
 <!-- =====================================================
      PASSWORD SCREEN
 ===================================================== -->
@@ -1719,6 +2064,10 @@ footer{
 <div id="passwordScreen">
 
     <div class="password-card">
+
+        <div class="password-bow">
+            🎀
+        </div>
 
         <div class="password-lock">
             ♡
@@ -1787,7 +2136,7 @@ footer{
 
 
 <!-- =====================================================
-     ORIGINAL CINEMATIC INTRO
+     CINEMATIC INTRO
 ===================================================== -->
 
 <div id="intro">
@@ -1850,6 +2199,97 @@ footer{
 
 
 <!-- =====================================================
+     NEW LOVE QUESTION
+===================================================== -->
+
+<div id="loveQuestion">
+
+    <div class="question-card">
+
+        <div class="question-bow">
+            🎀
+        </div>
+
+        <div class="question-small">
+            One little question...
+        </div>
+
+        <div
+            id="questionContent"
+        >
+
+            <div class="question-title">
+                بتحبيني؟
+            </div>
+
+            <div class="question-text">
+                جاوبي بصراحة... أنا مستني الإجابة 👀♡
+            </div>
+
+            <div class="question-buttons">
+
+                <button
+                    class="question-btn"
+                    id="yesBtn"
+                >
+                    آه 💗
+                </button>
+
+                <button
+                    class="question-btn secondary"
+                    id="noBtn"
+                >
+                    لأ 🙃
+                </button>
+
+            </div>
+
+            <div
+                class="question-response"
+                id="questionResponse"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="finalLoveMessage"
+        >
+
+            <div class="final-love">
+                وأنا بموت فيكي
+            </div>
+
+            <div class="final-love-sub">
+
+                وبحبك يا نور عيني يا مريومه ♡
+
+                <br>
+
+                أوي أوي أوي أوي أوي أوي 🎀
+
+            </div>
+
+            <div class="final-hearts">
+                ♡ 🎀 ♡ 🎀 ♡
+            </div>
+
+            <button
+                class="question-btn"
+                id="enterSiteBtn"
+                style="margin-top:30px;"
+            >
+                خلاص بقى ندخل الموقع ♡
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
      MAIN WEBSITE
 ===================================================== -->
 
@@ -1859,25 +2299,25 @@ footer{
 <header>
 
     <div class="logo">
-        ♥ From Dody to <span>Marioma</span> ♥
+        🎀 From Dody to <span>Marioma</span> ♡
     </div>
 
     <nav>
 
         <a href="#home">
-            Home
+            ♡ Home
         </a>
 
         <a href="#story">
-            For You
+            ♡ For You
         </a>
 
         <a href="#memories">
-            Memories
+            ♡ Memories
         </a>
 
         <a href="#puzzleSection">
-            Secret
+            ♡ Secret
         </a>
 
     </nav>
@@ -1892,14 +2332,22 @@ footer{
     id="home"
 >
 
+    <span class="pink-heart">
+        ♡
+    </span>
+
+    <span class="pink-heart">
+        ♡
+    </span>
+
     <div class="hero-content">
 
         <div class="eyebrow">
-            A little something, made only for you
+            🎀 A little something, made only for you 🎀
         </div>
 
         <h1>
-            Marioma
+            Marioma ♡
         </h1>
 
         <p>
@@ -1926,7 +2374,7 @@ footer{
     <div class="story">
 
         <div class="section-label">
-            For You
+            🎀 For You 🎀
         </div>
 
         <h2 class="section-title">
@@ -1964,7 +2412,7 @@ footer{
 <section class="song">
 
     <div class="section-label">
-        Our song
+        🎀 Our song 🎀
     </div>
 
     <h2 class="section-title">
@@ -1998,7 +2446,7 @@ footer{
     <div class="memories">
 
         <div class="section-label">
-            Memories
+            🎀 Memories 🎀
         </div>
 
         <h2 class="section-title">
@@ -2108,7 +2556,7 @@ footer{
 
 
         <div class="section-label">
-            One more thing...
+            🎀 One more thing... 🎀
         </div>
 
 
@@ -2229,7 +2677,7 @@ footer{
 
 
         <div class="section-label">
-            Our story
+            🎀 Our story 🎀
         </div>
 
 
@@ -2304,12 +2752,12 @@ footer{
 
 
     <div class="section-label">
-        Before you leave...
+        🎀 Before you leave... 🎀
     </div>
 
 
     <h2>
-        Look at me.
+        Look at me. ♡
     </h2>
 
 
@@ -2340,7 +2788,7 @@ footer{
 
 
 <footer>
-    Made with love, just for Marioma ♡
+    Made with love, just for Marioma 🎀 ♡
 </footer>
 
 
@@ -2477,7 +2925,6 @@ const passwordInput =
 const passwordError =
     document.getElementById("passwordError");
 
-
 const CORRECT_PASSWORD =
     "842005";
 
@@ -2493,13 +2940,9 @@ passwordForm.addEventListener(
             CORRECT_PASSWORD
         ){
 
-            passwordError.classList.remove(
-                "show"
-            );
+            passwordError.classList.remove("show");
 
-            passwordScreen.classList.add(
-                "hide"
-            );
+            passwordScreen.classList.add("hide");
 
             setTimeout(
                 () => {
@@ -2520,9 +2963,7 @@ passwordForm.addEventListener(
             passwordError.textContent =
                 "Not quite... try again ♡";
 
-            passwordError.classList.add(
-                "show"
-            );
+            passwordError.classList.add("show");
 
             passwordInput.classList.remove(
                 "password-wrong"
@@ -2556,21 +2997,12 @@ function startHandIntro(){
 
     handIntro.style.display = "flex";
 
-    handIntro.classList.remove(
-        "hide"
-    );
+    handIntro.classList.remove("hide");
 
     setTimeout(
         () => {
 
-            handIntro.classList.add(
-                "hide"
-            );
-
-            /*
-             * Start the original intro AFTER
-             * the handwriting screen begins fading.
-             */
+            handIntro.classList.add("hide");
 
             setTimeout(
                 () => {
@@ -2733,6 +3165,241 @@ function startIntro(){
 }
 
 
+/* =====================================================
+   LOVE QUESTION FLOW
+===================================================== */
+
+const loveQuestion =
+    document.getElementById("loveQuestion");
+
+const questionContent =
+    document.getElementById("questionContent");
+
+const questionTitle =
+    document.querySelector(".question-title");
+
+const questionText =
+    document.querySelector(".question-text");
+
+const questionResponse =
+    document.getElementById("questionResponse");
+
+const yesBtn =
+    document.getElementById("yesBtn");
+
+const noBtn =
+    document.getElementById("noBtn");
+
+const finalLoveMessage =
+    document.getElementById("finalLoveMessage");
+
+const enterSiteBtn =
+    document.getElementById("enterSiteBtn");
+
+
+let loveLevel = 0;
+
+const loveQuestions = [
+
+    "يعني مش أوي أوي؟",
+
+    "يعني مش أوي أوي أوي؟",
+
+    "يعني مش أوي أوي أوي أوي؟",
+
+    "يعني مش أوي أوي أوي أوي أوي؟",
+
+    "يعني مش أوي أوي أوي أوي أوي أوي؟"
+
+];
+
+
+function showLoveQuestion(){
+
+    loveQuestion.classList.add("show");
+
+    loveLevel = 0;
+
+    questionTitle.textContent =
+        "بتحبيني؟";
+
+    questionText.textContent =
+        "جاوبي بصراحة... أنا مستني الإجابة 👀♡";
+
+    questionResponse.textContent = "";
+
+    yesBtn.textContent =
+        "آه 💗";
+
+    noBtn.textContent =
+        "لأ 🙃";
+
+    questionContent.style.display =
+        "block";
+
+    finalLoveMessage.style.display =
+        "none";
+
+}
+
+
+/* YES */
+
+yesBtn.addEventListener(
+    "click",
+    () => {
+
+        if(loveLevel === 0){
+
+            loveLevel = 1;
+
+            questionTitle.textContent =
+                "بتحبيني؟";
+
+            questionText.textContent =
+                loveQuestions[0];
+
+            yesBtn.textContent =
+                "أوي أوي 😭💗";
+
+            noBtn.textContent =
+                "أوي 😌";
+
+            questionResponse.textContent =
+                "";
+
+            return;
+        }
+
+
+        if(
+            loveLevel <
+            loveQuestions.length
+        ){
+
+            loveLevel++;
+
+            if(
+                loveLevel <=
+                loveQuestions.length
+            ){
+
+                questionTitle.textContent =
+                    "بتحبيني؟";
+
+                questionText.textContent =
+                    loveQuestions[
+                        loveLevel - 1
+                    ];
+
+                yesBtn.textContent =
+                    "أوي أوي أوي 💗";
+
+                noBtn.textContent =
+                    "أوي 😏";
+
+            }
+
+        }
+
+
+        if(
+            loveLevel >=
+            loveQuestions.length
+        ){
+
+            setTimeout(
+                showFinalLove,
+                450
+            );
+
+        }
+
+    }
+);
+
+
+/* NO */
+
+noBtn.addEventListener(
+    "click",
+    () => {
+
+        if(loveLevel === 0){
+
+            questionResponse.textContent =
+                "متأكدة؟ 👀";
+
+            noBtn.textContent =
+                "لأ بجد 🙃";
+
+            yesBtn.textContent =
+                "آه طبعااا 💗";
+
+            return;
+        }
+
+
+        questionResponse.textContent =
+            "أيوه كده... كنت عارف 😌🎀";
+
+        noBtn.textContent =
+            "أوي";
+
+        yesBtn.textContent =
+            "أوي أوي أوي 💗";
+
+    }
+);
+
+
+/* FINAL MESSAGE */
+
+function showFinalLove(){
+
+    questionContent.style.display =
+        "none";
+
+    finalLoveMessage.style.display =
+        "block";
+
+}
+
+
+/* ENTER WEBSITE */
+
+enterSiteBtn.addEventListener(
+    "click",
+    () => {
+
+        loveQuestion.classList.remove(
+            "show"
+        );
+
+        setTimeout(
+            () => {
+
+                site.classList.add(
+                    "visible"
+                );
+
+                window.scrollTo({
+                    top:0,
+                    behavior:"instant"
+                });
+
+            },
+            700
+        );
+
+    }
+);
+
+
+/* =====================================================
+   INTRO NEXT
+===================================================== */
+
 introNext.addEventListener(
     "click",
     () => {
@@ -2750,14 +3417,13 @@ introNext.addEventListener(
                 intro.style.display =
                     "none";
 
-                site.classList.add(
-                    "visible"
-                );
+                /*
+                 * NEW:
+                 * Question appears before
+                 * the main website.
+                 */
 
-                window.scrollTo({
-                    top:0,
-                    behavior:"instant"
-                });
+                showLoveQuestion();
 
             },
             1000
@@ -3200,7 +3866,7 @@ function unlockPuzzle(){
 
 
 /* =====================================================
-   SECRET CINEMATIC SEQUENCE
+   SECRET CINEMATIC
 ===================================================== */
 
 function startSecretSequence(){
@@ -3528,8 +4194,15 @@ document
         setTimeout(
             () => {
 
+                site.classList.remove(
+                    "visible"
+                );
+
                 intro.style.display =
                     "flex";
+
+                intro.style.opacity =
+                    "1";
 
                 startIntro();
 
